@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kuis Kewirausahaan Digital</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #e8f5e9, #e3f2fd);
+    color: #263238;
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.header {
+    background: linear-gradient(135deg, #176b3a, #1976a8);
+    color: white;
+    padding: 30px 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.header h1 {
+    margin: 0 0 10px;
+}
+
+.header p {
+    margin: 5px 0;
+}
+
+.soal {
+    background: white;
+    margin-top: 20px;
+    padding: 22px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.soal h3 {
+    color: #176b3a;
+    margin-top: 0;
+}
+
+.pernyataan {
+    background: #f1f8f4;
+    padding: 12px 18px;
+    border-radius: 10px;
+    margin: 10px 0 15px;
+}
+
+label {
+    display: block;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+label:hover {
+    background: #eef8f2;
+    border-color: #55a879;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+.kirim {
+    width: 100%;
+    margin-top: 25px;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #176b3a, #1976a8);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.kirim:hover {
+    opacity: 0.9;
+}
+
+.hasil {
+    display: none;
+    margin-top: 25px;
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.hasil h2 {
+    color: #176b3a;
+}
+
+.skor {
+    font-size: 45px;
+    font-weight: bold;
+    color: #1976a8;
+    margin: 15px 0;
+}
+
+.detail {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.reset {
+    margin-top: 15px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #176b3a;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .container {
+        margin: 10px auto;
+        padding: 10px;
+    }
+
+    .header {
+        padding: 25px 15px;
+    }
+
+    .soal {
+        padding: 17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>📝 Kuis Kewirausahaan Digital</h1>
+        <p>Produk Kreatif dan Kewirausahaan</p>
+        <p>35 Soal Pilihan Ganda</p>
+    </div>
+
+    <form id="quizForm">
+
+        <!-- SOAL 1 -->
+        <div class="soal">
+            <h3>1. Sikap dan Perilaku Wirausahawan</h3>
+
+            <div class="pernyataan">
+                Perhatikan pernyataan berikut!<br><br>
+                1. Berani mengambil risiko yang telah diperhitungkan<br>
+                2. Mudah menyerah ketika mengalami kegagalan<br>
+                3. Kreatif dalam menciptakan produk<br>
+                4. Tidak mau menerima kritik<br>
+                5. Memiliki sikap pantang menyerah
+            </div>
+
+            <p>Kombinasi sikap positif seorang wirausahawan ditunjukkan oleh nomor ....</p>
+
+            <label><input type="radio" name="q1" value="A"> A. 1, 2, dan 3</label>
+            <label><input type="radio" name="q1" value="B"> B. 1, 3, dan 5</label>
+            <label><input type="radio" name="q1" value="C"> C. 2, 3, dan 4</label>
+            <label><input type="radio" name="q1" value="D"> D. 2, 4, dan 5</label>
+            <label><input type="radio" name="q1" value="E"> E. 3, 4, dan 5</label>
+        </div>
+
+        <!-- SOAL 2 -->
+        <div class="soal">
+            <h3>2. Sikap Kreatif dan Inovatif</h3>
+            <p>
+                Seorang siswa membuat tempat pensil dari botol plastik bekas.
+                Ia kemudian memodifikasi desainnya dengan menambahkan sekat dan
+                hiasan agar lebih menarik serta memiliki fungsi tambahan.
+            </p>
+
+            <p>Sikap yang paling tepat tercermin dalam kegiatan tersebut adalah ....</p>
+
+            <label><input type="radio" name="q2" value="A"> A. Pasif dan konsumtif</label>
+            <label><input type="radio" name="q2" value="B"> B. Kreatif dan inovatif</label>
+            <label><input type="radio" name="q2" value="C"> C. Boros dan konsumtif</label>
+            <label><input type="radio" name="q2" value="D"> D. Pesimis dan tidak produktif</label>
+            <label><input type="radio" name="q2" value="E"> E. Tidak peduli lingkungan</label>
+        </div>
+
+        <!-- SOAL 3 -->
+        <div class="soal">
+            <h3>3. Evaluasi Keluhan Pelanggan</h3>
+            <p>
+                Pelanggan mengeluhkan bahwa kualitas aplikasi yang baru diperbarui
+                menjadi lebih lambat. Tindakan paling tepat yang harus dilakukan
+                pengusaha adalah ....
+            </p>
+
+            <label><input type="radio" name="q3" value="A"> A. Mengabaikan keluhan pelanggan</label>
+            <label><input type="radio" name="q3" value="B"> B. Menyalahkan pelanggan karena perangkatnya</label>
+            <label><input type="radio" name="q3" value="C"> C. Menghapus aplikasi dari pasaran</label>
+            <label><input type="radio" name="q3" value="D"> D. Menganalisis penyebab masalah dan melakukan perbaikan</label>
+            <label><input type="radio" name="q3" value="E"> E. Menghentikan seluruh kegiatan usaha</label>
+        </div>
+
+        <!-- SOAL 4 -->
+        <div class="soal">
+            <h3>4. SWOT – Weaknesses</h3>
+            <p>
+                Sebuah usaha jasa pembuatan website memiliki tim yang kreatif,
+                tetapi hanya memiliki dua orang programmer sehingga pengerjaan
+                beberapa proyek sering terlambat.
+            </p>
+
+            <p>Kondisi tersebut termasuk ....</p>
+
+            <label><input type="radio" name="q4" value="A"> A. Strengths</label>
+            <label><input type="radio" name="q4" value="B"> B. Weaknesses</label>
+            <label><input type="radio" name="q4" value="C"> C. Opportunities</label>
+            <label><input type="radio" name="q4" value="D"> D. Threats</label>
+            <label><input type="radio" name="q4" value="E"> E. Promotion</label>
+        </div>
+
+        <!-- SOAL 5 -->
+        <div class="soal">
+            <h3>5. Kolaborasi dalam Usaha</h3>
+            <p>
+                Sebuah tim pengembang aplikasi memiliki keterbatasan kemampuan
+                dalam bidang keamanan siber. Agar kualitas produk tetap terjaga,
+                keputusan yang paling tepat adalah ....
+            </p>
+
+            <label><input type="radio" name="q5" value="A"> A. Mengabaikan keamanan aplikasi</label>
+            <label><input type="radio" name="q5" value="B"> B. Mengurangi fitur keamanan</label>
+            <label><input type="radio" name="q5" value="C"> C. Mengajak tenaga ahli keamanan siber untuk berkolaborasi</label>
+            <label><input type="radio" name="q5" value="D"> D. Menghentikan proyek</label>
+            <label><input type="radio" name="q5" value="E"> E. Menyerahkan semua pekerjaan kepada pelanggan</label>
+        </div>
+
+        <!-- SOAL 6 -->
+        <div class="soal">
+            <h3>6. Menetapkan Jenis Usaha</h3>
+            <p>Urutan langkah awal yang paling tepat dalam menetapkan jenis usaha adalah ....</p>
+
+            <label><input type="radio" name="q6" value="A"> A. Produksi → pemasaran → mencari kebutuhan pasar</label>
+            <label><input type="radio" name="q6" value="B"> B. Menentukan kebutuhan pasar → mencari ide usaha → menganalisis peluang</label>
+            <label><input type="radio" name="q6" value="C"> C. Promosi → produksi → menentukan target pasar</label>
+            <label><input type="radio" name="q6" value="D"> D. Membeli alat → memproduksi barang → mencari pelanggan</label>
+            <label><input type="radio" name="q6" value="E"> E. Menentukan harga → membuat produk → mencari ide</label>
+        </div>
+
+        <!-- SOAL 7 -->
+        <div class="soal">
+            <h3>7. Lembaga Pengelola HKI</h3>
+            <p>Lembaga resmi di Indonesia yang menangani pendaftaran kekayaan intelektual adalah ....</p>
+
+            <label><input type="radio" name="q7" value="A"> A. BPS</label>
+            <label><input type="radio" name="q7" value="B"> B. BPK</label>
+            <label><input type="radio" name="q7" value="C"> C. DJKI</label>
+            <label><input type="radio" name="q7" value="D"> D. OJK</label>
+            <label><input type="radio" name="q7" value="E"> E. KPK</label>
+        </div>
+
+        <!-- SOAL 8 -->
+        <div class="soal">
+            <h3>8. Desain Industri</h3>
+            <p>
+                Sebuah perusahaan membuat desain tampilan dashboard aplikasi
+                yang memiliki bentuk visual dan tata letak unik. Jenis perlindungan
+                HKI yang paling sesuai untuk aspek desain tersebut adalah ....
+            </p>
+
+            <label><input type="radio" name="q8" value="A"> A. Paten</label>
+            <label><input type="radio" name="q8" value="B"> B. Merek</label>
+            <label><input type="radio" name="q8" value="C"> C. Rahasia Dagang</label>
+            <label><input type="radio" name="q8" value="D"> D. Desain Industri</label>
+            <label><input type="radio" name="q8" value="E"> E. Hak atas Tanah</label>
+        </div>
+
+        <!-- SOAL 9 -->
+        <div class="soal">
+            <h3>9. Lisensi Kode Program</h3>
+            <p>
+                Seorang programmer ingin mempublikasikan kode program buatannya
+                di GitHub agar dapat digunakan oleh orang lain secara legal.
+                Tindakan yang paling tepat adalah ....
+            </p>
+
+            <label><input type="radio" name="q9" value="A"> A. Menghapus nama pembuat</label>
+            <label><input type="radio" name="q9" value="B"> B. Menyertakan lisensi penggunaan kode</label>
+            <label><input type="radio" name="q9" value="C"> C. Mengaku sebagai pembuat kode orang lain</label>
+            <label><input type="radio" name="q9" value="D"> D. Menyembunyikan seluruh informasi kode</label>
+            <label><input type="radio" name="q9" value="E"> E. Menggunakan kode tanpa aturan</label>
+        </div>
+
+        <!-- SOAL 10 -->
+        <div class="soal">
+            <h3>10. Perencanaan Produk Digital</h3>
+            <p>
+                Sebuah aplikasi dibuat khusus untuk siswa SMA, tetapi sebagian besar
+                fitur dan tampilannya justru dirancang untuk kebutuhan perusahaan besar.
+            </p>
+
+            <p>Kesalahan utama dalam perencanaan produk tersebut adalah ....</p>
+
+            <label><input type="radio" name="q10" value="A"> A. Tidak menentukan harga produk</label>
+            <label><input type="radio" name="q10" value="B"> B. Tidak menyesuaikan produk dengan target pengguna</label>
+            <label><input type="radio" name="q10" value="C"> C. Terlalu banyak melakukan promosi</label>
+            <label><input type="radio" name="q10" value="D"> D. Menggunakan teknologi digital</label>
+            <label><input type="radio" name="q10" value="E"> E. Menggunakan desain aplikasi</label>
+        </div>
+
+        <!-- SOAL 11 -->
+        <div class="soal">
+            <h3>11. Aksesibilitas</h3>
+            <p>
+                Sebuah aplikasi akan digunakan oleh pengguna yang memiliki
+                keterbatasan penglihatan. Fitur yang paling penting untuk ditambahkan adalah ....
+            </p>
+
+            <label><input type="radio" name="q11" value="A"> A. Animasi yang semakin banyak</label>
+            <label><input type="radio" name="q11" value="B"> B. Musik otomatis</label>
+            <label><input type="radio" name="q11" value="C"> C. Dukungan screen reader</label>
+            <label><input type="radio" name="q11" value="D"> D. Video beresolusi tinggi</label>
+            <label><input type="radio" name="q11" value="E"> E. Wallpaper bergerak</label>
+        </div>
+
+        <!-- SOAL 12 -->
+        <div class="soal">
+            <h3>12. Penentuan Platform</h3>
+            <p>
+                Mengapa platform seperti Android, iOS, atau web perlu ditentukan
+                sejak awal perencanaan produk digital?
+            </p>
+
+            <label><input type="radio" name="q12" value="A"> A. Agar produk tidak perlu diuji</label>
+            <label><input type="radio" name="q12" value="B"> B. Agar pengembang tidak perlu menentukan target pengguna</label>
+            <label><input type="radio" name="q12" value="C"> C. Karena platform memengaruhi teknologi, desain, biaya, dan proses pengembangan</label>
+            <label><input type="radio" name="q12" value="D"> D. Agar produk dapat dibuat tanpa perencanaan</label>
+            <label><input type="radio" name="q12" value="E"> E. Karena semua platform memiliki kebutuhan yang sama</label>
+        </div>
+
+        <!-- SOAL 13 -->
+        <div class="soal">
+            <h3>13. Mockup dan Prototipe</h3>
+            <p>Perbedaan utama antara mockup dan prototipe adalah ....</p>
+
+            <label><input type="radio" name="q13" value="A"> A. Mockup hanya digunakan untuk database</label>
+            <label><input type="radio" name="q13" value="B"> B. Prototipe hanya berupa gambar tanpa interaksi</label>
+            <label><input type="radio" name="q13" value="C"> C. Mockup berfokus pada tampilan, sedangkan prototipe dapat menggambarkan interaksi/alur penggunaan</label>
+            <label><input type="radio" name="q13" value="D"> D. Mockup selalu lebih mahal daripada prototipe</label>
+            <label><input type="radio" name="q13" value="E"> E. Prototipe tidak dapat digunakan untuk pengujian</label>
+        </div>
+
+        <!-- SOAL 14 -->
+        <div class="soal">
+            <h3>14. UI dan UX</h3>
+            <p>
+                Sebuah aplikasi memiliki tampilan yang sangat menarik dengan warna
+                dan animasi bagus, tetapi pengguna kesulitan menemukan tombol utama.
+            </p>
+
+            <p>Masalah tersebut menunjukkan ....</p>
+
+            <label><input type="radio" name="q14" value="A"> A. UI bagus dan UX bagus</label>
+            <label><input type="radio" name="q14" value="B"> B. UI buruk dan UX bagus</label>
+            <label><input type="radio" name="q14" value="C"> C. UI menarik tetapi UX kurang baik</label>
+            <label><input type="radio" name="q14" value="D"> D. UI dan UX tidak diperlukan</label>
+            <label><input type="radio" name="q14" value="E"> E. UX hanya berkaitan dengan warna</label>
+        </div>
+
+        <!-- SOAL 15 -->
+        <div class="soal">
+            <h3>15. Alur Perancangan Antarmuka</h3>
+            <p>Urutan proses perancangan antarmuka yang tepat adalah ....</p>
+
+            <label><input type="radio" name="q15" value="A"> A. Prototipe → Wireframe → Mockup</label>
+            <label><input type="radio" name="q15" value="B"> B. Mockup → Prototipe → Wireframe</label>
+            <label><input type="radio" name="q15" value="C"> C. Wireframe → Mockup → Prototipe</label>
+            <label><input type="radio" name="q15" value="D"> D. Prototipe → Mockup → Wireframe</label>
+            <label><input type="radio" name="q15" value="E"> E. Mockup → Wireframe → Prototipe</label>
+        </div>
+
+        <!-- SOAL 16 -->
+        <div class="soal">
+            <h3>16. Strategi MVP</h3>
+            <p>
+                Sebuah startup memiliki dana dan tenaga pengembang yang terbatas.
+                Strategi yang paling efisien untuk memulai pengembangan aplikasi adalah ....
+            </p>
+
+            <label><input type="radio" name="q16" value="A"> A. Membuat seluruh fitur sekaligus</label>
+            <label><input type="radio" name="q16" value="B"> B. Membuat MVP dengan fitur inti terlebih dahulu</label>
+            <label><input type="radio" name="q16" value="C"> C. Menambah sebanyak mungkin animasi</label>
+            <label><input type="radio" name="q16" value="D"> D. Mengembangkan fitur yang tidak dibutuhkan pengguna</label>
+            <label><input type="radio" name="q16" value="E"> E. Menunda peluncuran tanpa batas waktu</label>
+        </div>
+
+        <!-- SOAL 17 -->
+        <div class="soal">
+            <h3>17. Agile/Scrum</h3>
+            <p>
+                Alasan utama metode Agile/Scrum banyak digunakan dalam pengembangan
+                produk digital adalah ....
+            </p>
+
+            <label><input type="radio" name="q17" value="A"> A. Tidak membutuhkan evaluasi</label>
+            <label><input type="radio" name="q17" value="B"> B. Tidak membutuhkan kerja sama tim</label>
+            <label><input type="radio" name="q17" value="C"> C. Fleksibel dan mampu beradaptasi terhadap perubahan kebutuhan</label>
+            <label><input type="radio" name="q17" value="D"> D. Semua pekerjaan dilakukan satu kali</label>
+            <label><input type="radio" name="q17" value="E"> E. Tidak memerlukan perencanaan</label>
+        </div>
+
+        <!-- SOAL 18 -->
+        <div class="soal">
+            <h3>18. Strategi Produksi Berbasis Sprint</h3>
+            <p>
+                Sebuah tim harus menyelesaikan aplikasi dalam waktu singkat.
+                Strategi yang paling tepat adalah ....
+            </p>
+
+            <label><input type="radio" name="q18" value="A"> A. Mengerjakan seluruh proyek tanpa evaluasi</label>
+            <label><input type="radio" name="q18" value="B"> B. Membagi pekerjaan ke dalam sprint dan melakukan evaluasi secara berkala</label>
+            <label><input type="radio" name="q18" value="C"> C. Menunda pengujian sampai proyek selesai</label>
+            <label><input type="radio" name="q18" value="D"> D. Mengubah target setiap hari tanpa perencanaan</label>
+            <label><input type="radio" name="q18" value="E"> E. Mengerjakan hanya bagian desain</label>
+        </div>
+
+        <!-- SOAL 19 -->
+        <div class="soal">
+            <h3>19. Pitch Deck</h3>
+            <p>Urutan bagian awal pitch deck yang paling tepat adalah ....</p>
+
+            <label><input type="radio" name="q19" value="A"> A. Solusi → Masalah → Judul</label>
+            <label><input type="radio" name="q19" value="B"> B. Masalah → Judul → Solusi</label>
+            <label><input type="radio" name="q19" value="C"> C. Judul → Masalah → Solusi</label>
+            <label><input type="radio" name="q19" value="D"> D. Solusi → Judul → Masalah</label>
+            <label><input type="radio" name="q19" value="E"> E. Harga → Solusi → Judul</label>
+        </div>
+
+        <!-- SOAL 20 -->
+        <div class="soal">
+            <h3>20. Proposal dan Proyeksi Keuangan</h3>
+            <p>
+                Investor menolak proposal karena proyeksi keuntungan dalam proposal
+                terlalu tinggi dan tidak didukung data yang realistis.
+                Kelemahan utama proposal tersebut adalah ....
+            </p>
+
+            <label><input type="radio" name="q20" value="A"> A. Desain sampul</label>
+            <label><input type="radio" name="q20" value="B"> B. Aspek keuangan dan proyeksi bisnis</label>
+            <label><input type="radio" name="q20" value="C"> C. Nama perusahaan</label>
+            <label><input type="radio" name="q20" value="D"> D. Warna logo</label>
+            <label><input type="radio" name="q20" value="E"> E. Jumlah halaman proposal</label>
+        </div>
+
+        <!-- SOAL 21 -->
+        <div class="soal">
+            <h3>21. Inovasi Aplikasi Kantin</h3>
+            <p>
+                Sebuah tim membuat aplikasi kantin sekolah. Agar siswa lebih mudah
+                memesan makanan, inovasi fitur yang paling tepat adalah ....
+            </p>
+
+            <label><input type="radio" name="q21" value="A"> A. Fitur permainan saja</label>
+            <label><input type="radio" name="q21" value="B"> B. Fitur pre-order dan e-payment</label>
+            <label><input type="radio" name="q21" value="C"> C. Fitur wallpaper</label>
+            <label><input type
