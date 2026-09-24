@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Kuis PPKn</title>
 
 <style>
@@ -22,8 +21,7 @@ header {
     background: linear-gradient(135deg, #125525, #176b8a);
     color: white;
     text-align: center;
-    padding: 30px 15px;
-    box-shadow: 0 3px 10px rgba(0,0,0,.15);
+    padding: 30px 20px;
 }
 
 header h1 {
@@ -36,113 +34,106 @@ header p {
 }
 
 .container {
-    max-width: 950px;
+    max-width: 900px;
     margin: 25px auto;
     padding: 0 15px;
 }
 
-.info {
+.info,
+.card,
+#hasil {
     background: white;
-    padding: 18px;
     border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.info {
+    padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,.08);
 }
 
-.info strong {
-    color: #176b45;
+.info h2 {
+    margin-top: 0;
+    color: #125525;
 }
 
-.soal {
-    background: white;
+.card {
     padding: 22px;
     margin-bottom: 18px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,.08);
 }
 
-.soal h3 {
+.card h3 {
     margin-top: 0;
-    color: #145c36;
+    color: #125525;
+    line-height: 1.5;
 }
 
-.pilihan {
+.option {
     display: block;
-    padding: 11px 13px;
-    margin: 8px 0;
+    background: #f5faf7;
+    border: 1px solid #d9e8df;
+    padding: 12px 14px;
+    margin: 10px 0;
     border-radius: 10px;
-    background: #f3f8f4;
-    border: 1px solid #d9e8dc;
     cursor: pointer;
-    transition: .2s;
 }
 
-.pilihan:hover {
-    background: #e4f4ea;
+.option:hover {
+    background: #e6f5ec;
 }
 
-.pilihan input {
-    margin-right: 8px;
+.option input {
+    margin-right: 10px;
 }
 
 textarea {
     width: 100%;
     min-height: 130px;
-    resize: vertical;
-    border: 1px solid #cbded0;
+    padding: 13px;
+    border: 1px solid #cdded4;
     border-radius: 10px;
-    padding: 12px;
+    resize: vertical;
     font-family: Arial, sans-serif;
     font-size: 15px;
 }
 
-.tombol-area {
-    text-align: center;
+.buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
     margin: 30px 0;
 }
 
 button {
     border: none;
-    padding: 14px 30px;
-    border-radius: 12px;
+    border-radius: 10px;
+    padding: 14px 25px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    margin: 5px;
 }
 
 .btn-kirim {
-    background: linear-gradient(135deg, #176b45, #176b8a);
+    background: linear-gradient(135deg, #125525, #176b8a);
     color: white;
 }
 
 .btn-reset {
-    background: #ddd;
+    background: #e5e5e5;
     color: #333;
-}
-
-button:hover {
-    opacity: .9;
 }
 
 #hasil {
     display: none;
-    background: white;
     padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 15px;
+    margin: 25px 0;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,.1);
-}
-
-#hasil h2 {
-    color: #176b45;
 }
 
 .nilai {
     font-size: 42px;
     font-weight: bold;
-    color: #176b8a;
+    color: #125525;
 }
 
 #catatanEssay {
@@ -150,44 +141,41 @@ button:hover {
 }
 
 .catatan {
-    background: #fffbea;
-    border-left: 5px solid #e0ad24;
+    background: #f5fbf7;
+    border-left: 5px solid #176b8a;
     padding: 18px;
-    margin-bottom: 18px;
+    margin: 15px 0;
     border-radius: 10px;
+    line-height: 1.7;
 }
 
 .catatan h3 {
+    color: #125525;
     margin-top: 0;
-    color: #8a6500;
-}
-
-.catatan p {
-    line-height: 1.6;
-}
-
-.catatan ul {
-    line-height: 1.7;
 }
 
 footer {
     text-align: center;
     padding: 25px;
-    color: #52645a;
+    color: #456;
+    font-size: 14px;
 }
 
 @media (max-width: 600px) {
     header h1 {
-        font-size: 24px;
+        font-size: 25px;
     }
 
-    .soal {
+    .card {
         padding: 17px;
+    }
+
+    .buttons {
+        flex-direction: column;
     }
 
     button {
         width: 100%;
-        margin: 5px 0;
     }
 }
 </style>
@@ -203,646 +191,833 @@ footer {
 <div class="container">
 
 <div class="info">
-    <strong>Petunjuk:</strong>
-    <ul>
-        <li>Jawablah soal pilihan ganda nomor 1–35.</li>
-        <li>Jawablah soal uraian nomor 36–40 dengan kemampuan sendiri.</li>
-        <li>Setelah selesai, klik <b>Kirim Jawaban</b>.</li>
-        <li>Nilai pilihan ganda akan dihitung otomatis.</li>
-        <li>Catatan jawaban essay akan muncul setelah jawaban dikirim.</li>
-    </ul>
+    <h2>📌 Petunjuk Pengerjaan</h2>
+
+    <p>
+        Jawablah soal pilihan ganda nomor <b>1–35</b>
+        dengan memilih salah satu jawaban yang paling tepat.
+    </p>
+
+    <p>
+        Jawablah soal essay nomor <b>36–40</b>
+        pada kolom yang tersedia.
+    </p>
+
+    <p>
+        Setelah selesai, klik <b>Kirim Jawaban</b>.
+        Nilai pilihan ganda akan dihitung otomatis.
+    </p>
+
+    <p>
+        <b>Catatan Essay</b> akan muncul setelah jawaban dikirim.
+    </p>
 </div>
 
-<form id="kuis">
+<form id="kuisForm">
 
-<!-- ================= SOAL 1 ================= -->
+<div id="soalPG"></div>
 
-<div class="soal">
-<h3>1. Rumusan awal Pancasila yang menjadi salah satu bagian penting dalam sejarah perumusan dasar negara terdapat dalam...</h3>
-
-<label class="pilihan">
-<input type="radio" name="q1" value="Piagam Jakarta">
-Piagam Jakarta
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q1" value="Dekrit Presiden">
-Dekrit Presiden
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q1" value="Konstitusi RIS">
-Konstitusi RIS
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q1" value="Supersemar">
-Supersemar
-</label>
+<div class="card">
+    <h2>✍️ B. Essay</h2>
+    <p>
+        Jawablah pertanyaan berikut dengan singkat dan jelas.
+    </p>
 </div>
 
-<!-- 2 -->
+<div id="soalEssay"></div>
 
-<div class="soal">
-<h3>2. Salah satu fungsi Pancasila sebagai pandangan hidup adalah...</h3>
+<div class="buttons">
 
-<label class="pilihan">
-<input type="radio" name="q2" value="Pedoman dalam menghadapi dan menyelesaikan berbagai masalah kehidupan">
-Pedoman dalam menghadapi dan menyelesaikan berbagai masalah kehidupan
-</label>
+    <button type="submit" class="btn-kirim">
+        📤 Kirim Jawaban
+    </button>
 
-<label class="pilihan">
-<input type="radio" name="q2" value="Dasar untuk menghapus semua aturan">
-Dasar untuk menghapus semua aturan
-</label>
+    <button type="button" class="btn-reset" onclick="resetKuis()">
+        🔄 Ulangi
+    </button>
 
-<label class="pilihan">
-<input type="radio" name="q2" value="Alat untuk membedakan masyarakat">
-Alat untuk membedakan masyarakat
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q2" value="Pedoman untuk kepentingan pribadi saja">
-Pedoman untuk kepentingan pribadi saja
-</label>
 </div>
 
-<!-- 3 -->
+</form>
 
-<div class="soal">
-<h3>3. Contoh perilaku taat terhadap aturan dalam kehidupan sehari-hari adalah...</h3>
 
-<label class="pilihan">
-<input type="radio" name="q3" value="Mematuhi peraturan yang berlaku secara sadar dan konsisten">
-Mematuhi peraturan yang berlaku secara sadar dan konsisten
-</label>
+<div id="hasil"></div>
 
-<label class="pilihan">
-<input type="radio" name="q3" value="Melanggar aturan ketika tidak diawasi">
-Melanggar aturan ketika tidak diawasi
-</label>
 
-<label class="pilihan">
-<input type="radio" name="q3" value="Mengikuti aturan hanya jika menguntungkan">
-Mengikuti aturan hanya jika menguntungkan
-</label>
+<div id="catatanEssay">
 
-<label class="pilihan">
-<input type="radio" name="q3" value="Mengabaikan peraturan">
-Mengabaikan peraturan
-</label>
+<div class="card">
+    <h2>📖 Catatan Essay</h2>
+
+    <p>
+        Catatan berikut dapat digunakan untuk mempelajari
+        kembali materi essay nomor 36–40.
+    </p>
 </div>
 
-<!-- 4 -->
 
-<div class="soal">
-<h3>4. Salah satu contoh kewajiban warga negara adalah...</h3>
+<div class="catatan">
 
-<label class="pilihan">
-<input type="radio" name="q4" value="Membayar pajak tepat waktu">
-Membayar pajak tepat waktu
-</label>
+<h3>36. Penerapan Pancasila dalam Menjaga Kerukunan di Sekolah</h3>
 
-<label class="pilihan">
-<input type="radio" name="q4" value="Mendapatkan pendidikan">
-Mendapatkan pendidikan
-</label>
+<ul>
+    <li>
+        Menghargai teman yang berbeda agama, suku, dan budaya.
+    </li>
 
-<label class="pilihan">
-<input type="radio" name="q4" value="Mendapatkan perlindungan hukum">
-Mendapatkan perlindungan hukum
-</label>
+    <li>
+        Melakukan gotong royong dan bekerja sama tanpa
+        membeda-bedakan teman.
+    </li>
 
-<label class="pilihan">
-<input type="radio" name="q4" value="Mendapatkan pelayanan kesehatan">
-Mendapatkan pelayanan kesehatan
-</label>
+    <li>
+        Menyelesaikan perselisihan melalui musyawarah
+        dan saling menghormati.
+    </li>
+</ul>
+
 </div>
 
-<!-- 5 -->
 
-<div class="soal">
-<h3>5. Sikap yang tepat dalam melaksanakan hak dan kewajiban adalah...</h3>
+<div class="catatan">
 
-<label class="pilihan">
-<input type="radio" name="q5" value="Melaksanakan hak dan kewajiban secara seimbang dan bertanggung jawab">
-Melaksanakan hak dan kewajiban secara seimbang dan bertanggung jawab
-</label>
+<h3>37. Perbedaan Kewenangan MA dan MK</h3>
 
-<label class="pilihan">
-<input type="radio" name="q5" value="Menuntut hak tanpa melaksanakan kewajiban">
-Menuntut hak tanpa melaksanakan kewajiban
-</label>
+<p>
+    <b>MA (Mahkamah Agung)</b> berwenang mengadili perkara
+    pada tingkat kasasi dan menguji peraturan perundang-undangan
+    di bawah undang-undang terhadap undang-undang.
+</p>
 
-<label class="pilihan">
-<input type="radio" name="q5" value="Mengutamakan kewajiban orang lain">
-Mengutamakan kewajiban orang lain
-</label>
+<p>
+    <b>Contoh:</b> MA menguji sebuah peraturan daerah yang
+    dianggap bertentangan dengan undang-undang.
+</p>
 
-<label class="pilihan">
-<input type="radio" name="q5" value="Mengabaikan hak dan kewajiban">
-Mengabaikan hak dan kewajiban
-</label>
+<p>
+    <b>MK (Mahkamah Konstitusi)</b> berwenang menguji undang-undang
+    terhadap UUD 1945 dan memutus perselisihan hasil Pemilu.
+</p>
+
+<p>
+    <b>Contoh:</b> MK memutus sengketa mengenai hasil Pemilu.
+</p>
+
 </div>
 
-<!-- 6 -->
 
-<div class="soal">
-<h3>6. Semboyan Bhinneka Tunggal Ika berasal dari kitab...</h3>
+<div class="catatan">
 
-<label class="pilihan">
-<input type="radio" name="q6" value="Kitab Sutasoma">
-Kitab Sutasoma
-</label>
+<h3>38. Hak dan Kewajiban Siswa di Sekolah</h3>
 
-<label class="pilihan">
-<input type="radio" name="q6" value="Kitab Negarakertagama">
-Kitab Negarakertagama
-</label>
+<p><b>Hak:</b></p>
 
-<label class="pilihan">
-<input type="radio" name="q6" value="Kitab Pararaton">
-Kitab Pararaton
-</label>
+<ul>
+    <li>Mendapatkan pendidikan dan pembelajaran.</li>
+    <li>Mendapatkan perlakuan yang adil dari sekolah.</li>
+    <li>Menggunakan fasilitas sekolah sesuai aturan.</li>
+</ul>
 
-<label class="pilihan">
-<input type="radio" name="q6" value="Kitab Bharatayudha">
-Kitab Bharatayudha
-</label>
+<p><b>Kewajiban:</b></p>
+
+<ul>
+    <li>Mematuhi tata tertib sekolah.</li>
+    <li>Menjaga kebersihan dan ketertiban sekolah.</li>
+    <li>Menghormati guru, karyawan, dan sesama siswa.</li>
+</ul>
+
 </div>
 
-<!-- 7 -->
 
-<div class="soal">
-<h3>7. Makna Bhinneka Tunggal Ika adalah...</h3>
+<div class="catatan">
 
-<label class="pilihan">
-<input type="radio" name="q7" value="Berbeda itu satu/kesatuan">
-Berbeda itu satu/kesatuan
-</label>
+<h3>39. Makna Asas LUBER JURDIL</h3>
 
-<label class="pilihan">
-<input type="radio" name="q7" value="Semua harus sama">
-Semua harus sama
-</label>
+<ul>
 
-<label class="pilihan">
-<input type="radio" name="q7" value="Perbedaan harus dihilangkan">
-Perbedaan harus dihilangkan
-</label>
+<li>
+    <b>Langsung:</b>
+    pemilih memberikan suara secara langsung tanpa perantara.
+    <br>
+    Contoh: memilih calon secara langsung di TPS.
+</li>
 
-<label class="pilihan">
-<input type="radio" name="q7" value="Perbedaan menyebabkan perpecahan">
-Perbedaan menyebabkan perpecahan
-</label>
+<li>
+    <b>Umum:</b>
+    semua warga negara yang memenuhi syarat memiliki hak memilih.
+    <br>
+    Contoh: warga yang telah memenuhi persyaratan dapat
+    menggunakan hak pilih.
+</li>
+
+<li>
+    <b>Bebas:</b>
+    pemilih bebas menentukan pilihannya tanpa paksaan.
+    <br>
+    Contoh: memilih calon sesuai pilihan sendiri.
+</li>
+
+<li>
+    <b>Rahasia:</b>
+    pilihan pemilih tidak boleh diketahui orang lain.
+    <br>
+    Contoh: mencoblos di bilik suara.
+</li>
+
+<li>
+    <b>Jujur:</b>
+    semua pihak melaksanakan Pemilu sesuai aturan
+    dan tidak melakukan kecurangan.
+</li>
+
+<li>
+    <b>Adil:</b>
+    setiap peserta dan pemilih mendapat perlakuan yang sama
+    sesuai ketentuan.
+</li>
+
+</ul>
+
 </div>
 
-<!-- 8 -->
 
-<div class="soal">
-<h3>8. Kegiatan bekerja bersama untuk kepentingan bersama disebut...</h3>
+<div class="catatan">
 
-<label class="pilihan">
-<input type="radio" name="q8" value="Gotong royong">
-Gotong royong
-</label>
+<h3>40. Urutan Konstitusi yang Pernah Berlaku di Indonesia</h3>
 
-<label class="pilihan">
-<input type="radio" name="q8" value="Kompetisi">
-Kompetisi
-</label>
+<ol>
 
-<label class="pilihan">
-<input type="radio" name="q8" value="Individualisme">
-Individualisme
-</label>
+<li>
+    <b>UUD 1945</b> —
+    18 Agustus 1945 sampai 27 Desember 1949.
+</li>
 
-<label class="pilihan">
-<input type="radio" name="q8" value="Persaingan">
-Persaingan
-</label>
+<li>
+    <b>Konstitusi RIS 1949</b> —
+    27 Desember 1949 sampai 17 Agustus 1950.
+</li>
+
+<li>
+    <b>UUD Sementara 1950 (UUDS 1950)</b> —
+    17 Agustus 1950 sampai 5 Juli 1959.
+</li>
+
+<li>
+    <b>UUD 1945 kembali berlaku</b> —
+    sejak Dekrit Presiden 5 Juli 1959.
+</li>
+
+<li>
+    <b>UUD NRI Tahun 1945 hasil perubahan/amandemen</b> —
+    berlaku sampai sekarang.
+</li>
+
+</ol>
+
 </div>
 
-<!-- 9 -->
-
-<div class="soal">
-<h3>9. Sikap yang tepat untuk menjaga keutuhan bangsa adalah...</h3>
-
-<label class="pilihan">
-<input type="radio" name="q9" value="Menjaga persatuan dan kesatuan bangsa">
-Menjaga persatuan dan kesatuan bangsa
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q9" value="Mengutamakan kelompok sendiri">
-Mengutamakan kelompok sendiri
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q9" value="Menolak perbedaan">
-Menolak perbedaan
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q9" value="Menyebarkan konflik">
-Menyebarkan konflik
-</label>
 </div>
 
-<!-- 10 -->
-
-<div class="soal">
-<h3>10. Contoh penerapan tanggung jawab sebagai siswa di sekolah adalah...</h3>
-
-<label class="pilihan">
-<input type="radio" name="q10" value="Menjaga kebersihan dan ketertiban sekolah">
-Menjaga kebersihan dan ketertiban sekolah
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q10" value="Membuang sampah sembarangan">
-Membuang sampah sembarangan
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q10" value="Merusak fasilitas sekolah">
-Merusak fasilitas sekolah
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q10" value="Mengabaikan tata tertib">
-Mengabaikan tata tertib
-</label>
 </div>
 
-<!-- 11 -->
-
-<div class="soal">
-<h3>11. Jika terjadi perbedaan pendapat dalam kelompok, sebaiknya...</h3>
-
-<label class="pilihan">
-<input type="radio" name="q11" value="Menyelesaikan perbedaan melalui musyawarah untuk mencapai mufakat">
-Menyelesaikan perbedaan melalui musyawarah untuk mencapai mufakat
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q11" value="Memaksakan pendapat sendiri">
-Memaksakan pendapat sendiri
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q11" value="Meninggalkan kelompok">
-Meninggalkan kelompok
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q11" value="Bertengkar">
-Bertengkar
-</label>
-</div>
-
-<!-- 12 -->
-
-<div class="soal">
-<h3>12. Sikap yang tepat terhadap teman baru yang memiliki budaya berbeda adalah...</h3>
-
-<label class="pilihan">
-<input type="radio" name="q12" value="Membantu dan mengajak teman baru bergaul tanpa membeda-bedakan budayanya">
-Membantu dan mengajak teman baru bergaul tanpa membeda-bedakan budayanya
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q12" value="Menjauhinya">
-Menjauhinya
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q12" value="Mengejek budayanya">
-Mengejek budayanya
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q12" value="Tidak mengajaknya bekerja sama">
-Tidak mengajaknya bekerja sama
-</label>
-</div>
-
-<!-- 13 -->
-
-<div class="soal">
-<h3>13. Dalam mengambil keputusan bersama, sikap yang sesuai nilai Pancasila adalah...</h3>
-
-<label class="pilihan">
-<input type="radio" name="q13" value="Bersikap adil dan mengutamakan kepentingan bersama">
-Bersikap adil dan mengutamakan kepentingan bersama
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q13" value="Mengutamakan kepentingan pribadi">
-Mengutamakan kepentingan pribadi
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q13" value="Memaksakan kehendak">
-Memaksakan kehendak
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q13" value="Mengabaikan pendapat orang lain">
-Mengabaikan pendapat orang lain
-</label>
-</div>
-
-<!-- 14 -->
-
-<div class="soal">
-<h3>14. Sila ketiga Pancasila berbunyi...</h3>
-
-<label class="pilihan">
-<input type="radio" name="q14" value="Persatuan Indonesia">
-Persatuan Indonesia
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q14" value="Keadilan Sosial bagi Seluruh Rakyat Indonesia">
-Keadilan Sosial bagi Seluruh Rakyat Indonesia
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q14" value="Kemanusiaan yang Adil dan Beradab">
-Kemanusiaan yang Adil dan Beradab
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q14" value="Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan">
-Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan
-</label>
-</div>
-
-<!-- 15 -->
-
-<div class="soal">
-<h3>15. Peristiwa yang menyebabkan terbentuknya Republik Indonesia Serikat adalah...</h3>
-
-<label class="pilihan">
-<input type="radio" name="q15" value="Hasil Konferensi Meja Bundar yang menyebabkan terbentuknya Republik Indonesia Serikat">
-Hasil Konferensi Meja Bundar yang menyebabkan terbentuknya Republik Indonesia Serikat
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q15" value="Proklamasi Kemerdekaan">
-Proklamasi Kemerdekaan
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q15" value="Dekrit Presiden">
-Dekrit Presiden
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q15" value="Pemilu 1955">
-Pemilu 1955
-</label>
-</div>
-
-<!-- 16 -->
-
-<div class="soal">
-<h3>16. Salah satu ketentuan mengenai masa jabatan Presiden dan Wakil Presiden adalah...</h3>
-
-<label class="pilihan">
-<input type="radio" name="q16" value="Presiden dan Wakil Presiden dapat menjabat paling lama dua periode">
-Presiden dan Wakil Presiden dapat menjabat paling lama dua periode
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q16" value="Presiden dapat menjabat tanpa batas">
-Presiden dapat menjabat tanpa batas
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q16" value="Presiden hanya menjabat satu tahun">
-Presiden hanya menjabat satu tahun
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q16" value="Presiden tidak memiliki masa jabatan">
-Presiden tidak memiliki masa jabatan
-</label>
-</div>
-
-<!-- 17 -->
-
-<div class="soal">
-<h3>17. Salah satu wujud demokrasi dalam kehidupan bernegara adalah...</h3>
-
-<label class="pilihan">
-<input type="radio" name="q17" value="Rakyat dapat memilih pemimpin secara langsung melalui Pemilu">
-Rakyat dapat memilih pemimpin secara langsung melalui Pemilu
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q17" value="Pemimpin dipilih tanpa melibatkan rakyat">
-Pemimpin dipilih tanpa melibatkan rakyat
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q17" value="Rakyat tidak memiliki hak politik">
-Rakyat tidak memiliki hak politik
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q17" value="Pemilu tidak diperlukan">
-Pemilu tidak diperlukan
-</label>
-</div>
-
-<!-- 18 -->
-
-<div class="soal">
-<h3>18. Sikap yang sesuai dengan semangat Bhinneka Tunggal Ika adalah...</h3>
-
-<label class="pilihan">
-<input type="radio" name="q18" value="Menghargai pendapat dan latar belakang teman yang berbeda">
-Menghargai pendapat dan latar belakang teman yang berbeda
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q18" value="Memaksakan budaya sendiri">
-Memaksakan budaya sendiri
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q18" value="Menolak perbedaan">
-Menolak perbedaan
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q18" value="Mengejek teman yang berbeda">
-Mengejek teman yang berbeda
-</label>
-</div>
-
-<!-- 19 -->
-
-<div class="soal">
-<h3>19. Cara yang tepat menyelesaikan konflik antarkelompok adalah...</h3>
-
-<label class="pilihan">
-<input type="radio" name="q19" value="Melakukan dialog dan musyawarah untuk mencari solusi bersama">
-Melakukan dialog dan musyawarah untuk mencari solusi bersama
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q19" value="Menggunakan kekerasan">
-Menggunakan kekerasan
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q19" value="Menyebarkan masalah">
-Menyebarkan masalah
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q19" value="Memaksakan kehendak">
-Memaksakan kehendak
-</label>
-</div>
-
-<!-- 20 -->
-
-<div class="soal">
-<h3>20. Sikap yang tepat ketika menerima informasi di media sosial adalah...</h3>
-
-<label class="pilihan">
-<input type="radio" name="q20" value="Memeriksa kebenaran informasi sebelum menyebarkan dan tidak menyebarkan hoaks SARA">
-Memeriksa kebenaran informasi sebelum menyebarkan dan tidak menyebarkan hoaks SARA
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q20" value="Langsung menyebarkannya">
-Langsung menyebarkannya
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q20" value="Menyebarkan informasi yang memancing konflik">
-Menyebarkan informasi yang memancing konflik
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q20" value="Percaya semua informasi">
-Percaya semua informasi
-</label>
-</div>
-
-<!-- 21 -->
-
-<div class="soal">
-<h3>21. Dalam musyawarah, sikap yang sebaiknya dilakukan adalah...</h3>
-
-<label class="pilihan">
-<input type="radio" name="q21" value="Mendengarkan semua usulan dan mengambil keputusan melalui musyawarah">
-Mendengarkan semua usulan dan mengambil keputusan melalui musyawarah
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q21" value="Mengabaikan semua pendapat">
-Mengabaikan semua pendapat
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q21" value="Memaksakan pendapat ketua">
-Memaksakan pendapat ketua
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q21" value="Tidak mengambil keputusan">
-Tidak mengambil keputusan
-</label>
-</div>
-
-<!-- 22 -->
-
-<div class="soal">
-<h3>22. Untuk mencegah konflik akibat informasi di internet, kita sebaiknya...</h3>
-
-<label class="pilihan">
-<input type="radio" name="q22" value="Tidak menyebarkan informasi provokatif dan memeriksa kebenaran informasi">
-Tidak menyebarkan informasi provokatif dan memeriksa kebenaran informasi
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q22" value="Menyebarkan semua berita">
-Menyebarkan semua berita
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q22" value="Menyebarkan berita tanpa membaca">
-Menyebarkan berita tanpa membaca
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q22" value="Membuat berita palsu">
-Membuat berita palsu
-</label>
-</div>
-
-<!-- 23 -->
-
-<div class="soal">
-<h3>23. Cara mempertahankan nilai Pancasila dalam kehidupan sehari-hari adalah...</h3>
-
-<label class="pilihan">
-<input type="radio" name="q23" value="Mengamalkan nilai-nilai Pancasila dalam kehidupan sehari-hari">
-Mengamalkan nilai-nilai Pancasila dalam kehidupan sehari-hari
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q23" value="Menghafalkan Pancasila tanpa mengamalkannya">
-Menghafalkan Pancasila tanpa mengamalkannya
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q23" value="Mengabaikan nilai Pancasila">
-Mengabaikan nilai Pancasila
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q23" value="Mengutamakan kepentingan pribadi">
-Mengutamakan kepentingan pribadi
-</label>
-</div>
-
-<!-- 24 -->
-
-<div class="soal">
-<h3>24. Sikap yang tepat dalam menjaga keutuhan Negara Kesatuan Republik Indonesia adalah...</h3>
-
-<label class="pilihan">
-<input type="radio" name="q24" value="Menjaga persatuan, menolak gerakan separatis, dan menyelesaikan masalah secara damai sesuai hukum">
-Menjaga persatuan, menolak gerakan separatis, dan menyelesaikan masalah secara damai sesuai hukum
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q24" value="Mendukung perpecahan">
-Mendukung perpecahan
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q24" value="Menggunakan kekerasan">
-Menggunakan kekerasan
-</label>
-
-<label class="pilihan">
-<input type="radio" name="q24" value="Menolak hukum">
-Menolak hukum
-</label>
-</div>
-
-<!-- 25 -->
-
-<div class="soal">
-<h3>25. Bentuk negara, bentuk pemerintahan, dan sistem pemerintahan Indonesia adalah...</h3>
-
-<label class="pilihan">
-<input type="radio" name="q25" value="Neg
+
+<footer>
+    © 2026 Kuis PPKn | Belajar Pancasila, Konstitusi dan Demokrasi
+</footer>
+
+
+<script>
+
+const soalPG = [
+
+{
+    soal: "1. Rumusan dasar negara yang terdapat dalam rancangan Pembukaan UUD 1945 sebelum mengalami perubahan dikenal dengan nama...",
+    jawaban: "Piagam Jakarta",
+    opsi: [
+        "Piagam Jakarta",
+        "Dekrit Presiden",
+        "Konstitusi RIS",
+        "UUDS 1950"
+    ]
+},
+
+{
+    soal: "2. Salah satu fungsi Pancasila sebagai pandangan hidup bangsa adalah...",
+    jawaban: "Pedoman dalam menghadapi dan menyelesaikan berbagai masalah kehidupan",
+    opsi: [
+        "Pedoman dalam menghadapi dan menyelesaikan berbagai masalah kehidupan",
+        "Menggantikan seluruh peraturan negara",
+        "Menentukan jabatan setiap warga negara",
+        "Menghapus keberagaman masyarakat"
+    ]
+},
+
+{
+    soal: "3. Contoh sikap taat terhadap aturan dalam kehidupan sehari-hari adalah...",
+    jawaban: "Mematuhi peraturan yang berlaku secara sadar dan konsisten",
+    opsi: [
+        "Mematuhi peraturan yang berlaku secara sadar dan konsisten",
+        "Mematuhi aturan hanya ketika diawasi",
+        "Menghindari semua peraturan",
+        "Membuat aturan sendiri"
+    ]
+},
+
+{
+    soal: "4. Contoh kewajiban warga negara dalam bidang perpajakan adalah...",
+    jawaban: "Membayar pajak tepat waktu",
+    opsi: [
+        "Membayar pajak tepat waktu",
+        "Menghindari pembayaran pajak",
+        "Meminta orang lain membayar pajak",
+        "Menggunakan pajak untuk kepentingan pribadi"
+    ]
+},
+
+{
+    soal: "5. Sikap yang mencerminkan pelaksanaan hak dan kewajiban secara tepat adalah...",
+    jawaban: "Melaksanakan hak dan kewajiban secara seimbang dan bertanggung jawab",
+    opsi: [
+        "Melaksanakan hak dan kewajiban secara seimbang dan bertanggung jawab",
+        "Menuntut hak tanpa melaksanakan kewajiban",
+        "Mengutamakan kewajiban orang lain",
+        "Mengabaikan hak dan kewajiban"
+    ]
+},
+
+{
+    soal: "6. Semboyan Bhinneka Tunggal Ika berasal dari kitab...",
+    jawaban: "Kitab Sutasoma",
+    opsi: [
+        "Kitab Sutasoma",
+        "Kitab Negarakertagama",
+        "Kitab Pararaton",
+        "Kitab Arjunawiwaha"
+    ]
+},
+
+{
+    soal: "7. Makna utama semboyan Bhinneka Tunggal Ika adalah...",
+    jawaban: "Berbeda itu satu/kesatuan",
+    opsi: [
+        "Berbeda itu satu/kesatuan",
+        "Semua orang harus memiliki budaya yang sama",
+        "Perbedaan harus dihilangkan",
+        "Hanya satu budaya yang boleh berkembang"
+    ]
+},
+
+{
+    soal: "8. Kegiatan bekerja bersama untuk kepentingan bersama merupakan contoh...",
+    jawaban: "Gotong royong",
+    opsi: [
+        "Gotong royong",
+        "Individualisme",
+        "Persaingan",
+        "Diskriminasi"
+    ]
+},
+
+{
+    soal: "9. Sikap yang tepat dalam menghadapi keberagaman masyarakat Indonesia adalah...",
+    jawaban: "Menjaga persatuan dan kesatuan bangsa",
+    opsi: [
+        "Menjaga persatuan dan kesatuan bangsa",
+        "Membeda-bedakan suku",
+        "Mengutamakan kelompok sendiri",
+        "Menolak budaya daerah lain"
+    ]
+},
+
+{
+    soal: "10. Contoh penerapan nilai Pancasila di lingkungan sekolah adalah...",
+    jawaban: "Menjaga kebersihan dan ketertiban sekolah",
+    opsi: [
+        "Menjaga kebersihan dan ketertiban sekolah",
+        "Membuang sampah sembarangan",
+        "Mengganggu teman belajar",
+        "Merusak fasilitas sekolah"
+    ]
+},
+
+{
+    soal: "11. Cara yang tepat untuk menyelesaikan perbedaan pendapat adalah...",
+    jawaban: "Menyelesaikan perbedaan melalui musyawarah untuk mencapai mufakat",
+    opsi: [
+        "Menyelesaikan perbedaan melalui musyawarah untuk mencapai mufakat",
+        "Memaksakan pendapat sendiri",
+        "Menghindari semua pembicaraan",
+        "Menggunakan kekerasan"
+    ]
+},
+
+{
+    soal: "12. Sikap yang tepat terhadap teman baru yang memiliki budaya berbeda adalah...",
+    jawaban: "Membantu dan mengajak teman baru bergaul tanpa membeda-bedakan budayanya",
+    opsi: [
+        "Membantu dan mengajak teman baru bergaul tanpa membeda-bedakan budayanya",
+        "Menjauhinya karena berbeda budaya",
+        "Memintanya mengikuti budaya kita",
+        "Tidak mengajaknya bekerja kelompok"
+    ]
+},
+
+{
+    soal: "13. Dalam mengambil keputusan bersama, sikap yang sesuai nilai Pancasila adalah...",
+    jawaban: "Bersikap adil dan mengutamakan kepentingan bersama",
+    opsi: [
+        "Bersikap adil dan mengutamakan kepentingan bersama",
+        "Mengutamakan kepentingan pribadi",
+        "Memaksakan kehendak",
+        "Mengabaikan pendapat orang lain"
+    ]
+},
+
+{
+    soal: "14. Sikap menjaga persatuan dan menghargai keberagaman sesuai dengan sila...",
+    jawaban: "Persatuan Indonesia",
+    opsi: [
+        "Persatuan Indonesia",
+        "Ketuhanan Yang Maha Esa",
+        "Kemanusiaan yang Adil dan Beradab",
+        "Keadilan Sosial bagi Seluruh Rakyat Indonesia"
+    ]
+},
+
+{
+    soal: "15. Salah satu peristiwa yang berkaitan dengan perubahan bentuk negara Indonesia menjadi Republik Indonesia Serikat adalah...",
+    jawaban: "Hasil Konferensi Meja Bundar yang menyebabkan terbentuknya Republik Indonesia Serikat",
+    opsi: [
+        "Hasil Konferensi Meja Bundar yang menyebabkan terbentuknya Republik Indonesia Serikat",
+        "Dekrit Presiden 5 Juli 1959",
+        "Pemilu 1955",
+        "Sumpah Pemuda"
+    ]
+},
+
+{
+    soal: "16. Salah satu ketentuan mengenai masa jabatan Presiden dan Wakil Presiden adalah...",
+    jawaban: "Presiden dan Wakil Presiden dapat menjabat paling lama dua periode",
+    opsi: [
+        "Presiden dan Wakil Presiden dapat menjabat paling lama dua periode",
+        "Presiden dapat menjabat tanpa batas",
+        "Presiden hanya dapat menjabat satu tahun",
+        "Wakil Presiden tidak memiliki masa jabatan"
+    ]
+},
+
+{
+    soal: "17. Salah satu ciri kehidupan demokrasi di Indonesia adalah...",
+    jawaban: "Rakyat dapat memilih pemimpin secara langsung melalui Pemilu",
+    opsi: [
+        "Rakyat dapat memilih pemimpin secara langsung melalui Pemilu",
+        "Pemimpin ditentukan oleh satu orang",
+        "Rakyat tidak boleh memberikan suara",
+        "Pemilu hanya dilakukan oleh pemerintah"
+    ]
+},
+
+{
+    soal: "18. Contoh sikap menghargai keberagaman di sekolah adalah...",
+    jawaban: "Menghargai pendapat dan latar belakang teman yang berbeda",
+    opsi: [
+        "Menghargai pendapat dan latar belakang teman yang berbeda",
+        "Menganggap budaya sendiri paling baik",
+        "Mengejek teman yang berbeda",
+        "Menolak berteman dengan orang berbeda"
+    ]
+},
+
+{
+    soal: "19. Jika terjadi konflik dalam kelompok, tindakan yang tepat adalah...",
+    jawaban: "Melakukan dialog dan musyawarah untuk mencari solusi bersama",
+    opsi: [
+        "Melakukan dialog dan musyawarah untuk mencari solusi bersama",
+        "Menyalahkan salah satu pihak",
+        "Meninggalkan kelompok",
+        "Memaksakan kehendak"
+    ]
+},
+
+{
+    soal: "20. Sikap yang tepat ketika menerima informasi di media sosial adalah...",
+    jawaban: "Memeriksa kebenaran informasi sebelum menyebarkan dan tidak menyebarkan hoaks SARA",
+    opsi: [
+        "Memeriksa kebenaran informasi sebelum menyebarkan dan tidak menyebarkan hoaks SARA",
+        "Langsung menyebarkan semua informasi",
+        "Menyebarkan berita yang belum jelas",
+        "Membuat berita palsu agar viral"
+    ]
+},
+
+{
+    soal: "21. Dalam musyawarah, sikap yang sebaiknya dilakukan adalah...",
+    jawaban: "Mendengarkan semua usulan dan mengambil keputusan melalui musyawarah",
+    opsi: [
+        "Mendengarkan semua usulan dan mengambil keputusan melalui musyawarah",
+        "Mengabaikan semua usulan",
+        "Memaksakan pendapat ketua",
+        "Tidak memberikan kesempatan berbicara"
+    ]
+},
+
+{
+    soal: "22. Untuk menjaga persatuan di era digital, kita sebaiknya...",
+    jawaban: "Tidak menyebarkan informasi provokatif dan memeriksa kebenaran informasi",
+    opsi: [
+        "Tidak menyebarkan informasi provokatif dan memeriksa kebenaran informasi",
+        "Menyebarkan berita provokatif",
+        "Membagikan berita tanpa membaca",
+        "Membuat komentar yang menghina"
+    ]
+},
+
+{
+    soal: "23. Cara menerapkan Pancasila dalam kehidupan sehari-hari adalah...",
+    jawaban: "Mengamalkan nilai-nilai Pancasila dalam kehidupan sehari-hari",
+    opsi: [
+        "Mengamalkan nilai-nilai Pancasila dalam kehidupan sehari-hari",
+        "Menghafalkan Pancasila tanpa menerapkannya",
+        "Mengabaikan nilai Pancasila",
+        "Mengutamakan kepentingan pribadi"
+    ]
+},
+
+{
+    soal: "24. Sikap yang tepat dalam menjaga keutuhan Negara Kesatuan Republik Indonesia adalah...",
+    jawaban: "Menjaga persatuan, menolak gerakan separatis, dan menyelesaikan masalah secara damai sesuai hukum",
+    opsi: [
+        "Menjaga persatuan, menolak gerakan separatis, dan menyelesaikan masalah secara damai sesuai hukum",
+        "Menyelesaikan masalah dengan kekerasan",
+        "Mendukung perpecahan bangsa",
+        "Mengutamakan kelompok tertentu"
+    ]
+},
+
+{
+    soal: "25. Bentuk negara, bentuk pemerintahan, dan sistem pemerintahan Indonesia adalah...",
+    jawaban: "Negara Kesatuan, bentuk pemerintahan Republik, sistem pemerintahan Presidensial",
+    opsi: [
+        "Negara Kesatuan, bentuk pemerintahan Republik, sistem pemerintahan Presidensial",
+        "Negara Serikat, bentuk pemerintahan Kerajaan, sistem Parlementer",
+        "Negara Kesatuan, bentuk pemerintahan Kerajaan, sistem Parlementer",
+        "Negara Serikat, bentuk pemerintahan Republik, sistem Presidensial"
+    ]
+},
+
+{
+    soal: "26. Salah satu kewenangan DPR adalah...",
+    jawaban: "Membentuk undang-undang dan melakukan pengawasan terhadap pemerintah",
+    opsi: [
+        "Membentuk undang-undang dan melakukan pengawasan terhadap pemerintah",
+        "Mengadili perkara pidana",
+        "Mengangkat seluruh kepala daerah",
+        "Memutus sengketa hasil Pemilu"
+    ]
+},
+
+{
+    soal: "27. Salah satu kewenangan Mahkamah Konstitusi (MK) adalah...",
+    jawaban: "Memutus perselisihan tentang hasil Pemilu",
+    opsi: [
+        "Memutus perselisihan tentang hasil Pemilu",
+        "Membentuk undang-undang",
+        "Memimpin kabinet",
+        "Mengangkat menteri"
+    ]
+},
+
+{
+    soal: "28. Dalam sistem pemerintahan presidensial, kedudukan Presiden adalah...",
+    jawaban: "Presiden sebagai kepala pemerintahan memimpin kabinet dan para menteri membantu Presiden",
+    opsi: [
+        "Presiden sebagai kepala pemerintahan memimpin kabinet dan para menteri membantu Presiden",
+        "Presiden hanya sebagai simbol negara",
+        "Presiden berada di bawah perdana menteri",
+        "Presiden tidak memiliki kewenangan pemerintahan"
+    ]
+},
+
+{
+    soal: "29. Lembaga peradilan tertinggi dalam lingkungan peradilan di Indonesia adalah...",
+    jawaban: "Mahkamah Agung (MA)",
+    opsi: [
+        "Mahkamah Agung (MA)",
+        "Mahkamah Konstitusi (MK)",
+        "Komisi Pemilihan Umum (KPU)",
+        "Dewan Perwakilan Rakyat (DPR)"
+    ]
+},
+
+{
+    soal: "30. Pergantian atau perombakan susunan menteri dalam kabinet disebut...",
+    jawaban: "Reshuffle kabinet",
+    opsi: [
+        "Reshuffle kabinet",
+        "Referendum",
+        "Amandemen",
+        "Reformasi"
+    ]
+},
+
+{
+    soal: "31. Peristiwa sejarah yang berkaitan dengan gerakan pada 30 September 1965 dikenal sebagai...",
+    jawaban: "Peristiwa G30S/PKI",
+    opsi: [
+        "Peristiwa G30S/PKI",
+        "Peristiwa Rengasdengklok",
+        "Konferensi Meja Bundar",
+        "Sumpah Pemuda"
+    ]
+},
+
+{
+    soal: "32. Salah satu faktor yang menyebabkan keluarnya Dekrit Presiden 5 Juli 1959 adalah...",
+    jawaban: "Kegagalan Konstituante mencapai kesepakatan untuk menetapkan UUD baru",
+    opsi: [
+        "Kegagalan Konstituante mencapai kesepakatan untuk menetapkan UUD baru",
+        "Keberhasilan Konstituante menetapkan UUD baru",
+        "Pembentukan Republik Indonesia Serikat",
+        "Pelaksanaan Pemilu 1971"
+    ]
+},
+
+{
+    soal: "33. Salah satu fungsi Pemilu dalam kehidupan demokrasi adalah...",
+    jawaban: "Sebagai sarana warga negara berpartisipasi dalam menentukan pemimpin dan keputusan politik",
+    opsi: [
+        "Sebagai sarana warga negara berpartisipasi dalam menentukan pemimpin dan keputusan politik",
+        "Membatasi hak warga negara",
+        "Menghapus sistem demokrasi",
+        "Menentukan budaya setiap daerah"
+    ]
+},
+
+{
+    soal: "34. Pejabat yang membantu Presiden dalam menjalankan urusan pemerintahan tertentu adalah...",
+    jawaban: "Menteri",
+    opsi: [
+        "Menteri",
+        "Hakim",
+        "Gubernur",
+        "Kepala Desa"
+    ]
+},
+
+{
+    soal: "35. Lembaga yang menyelenggarakan Pemilu di Indonesia adalah...",
+    jawaban: "Komisi Pemilihan Umum (KPU)",
+    opsi: [
+        "Komisi Pemilihan Umum (KPU)",
+        "Mahkamah Agung (MA)",
+        "Mahkamah Konstitusi (MK)",
+        "Dewan Perwakilan Rakyat (DPR)"
+    ]
+}
+
+];
+
+
+const soalEssay = [
+
+{
+    nomor: 36,
+    soal: "Sebutkan tiga contoh perilaku penerapan Pancasila dalam menjaga kerukunan di sekolah."
+},
+
+{
+    nomor: 37,
+    soal: "Jelaskan perbedaan kewenangan Mahkamah Agung (MA) dan Mahkamah Konstitusi (MK), serta berikan contohnya."
+},
+
+{
+    nomor: 38,
+    soal: "Sebutkan tiga hak dan tiga kewajiban siswa di sekolah."
+},
+
+{
+    nomor: 39,
+    soal: "Jelaskan makna asas LUBER JURDIL dalam Pemilu beserta contohnya."
+},
+
+{
+    nomor: 40,
+    soal: "Jelaskan urutan konstitusi yang pernah berlaku di Indonesia beserta masa berlakunya."
+}
+
+];
+
+
+/* MENAMPILKAN PILIHAN GANDA */
+
+const soalPGContainer = document.getElementById("soalPG");
+
+soalPG.forEach(function(item, index) {
+
+    let nomor = index + 1;
+
+    let html = `
+        <div class="card">
+            <h3>${item.soal}</h3>
+    `;
+
+    item.opsi.forEach(function(opsi, i) {
+
+        const huruf = String.fromCharCode(65 + i);
+
+        html += `
+            <label class="option">
+                <input
+                    type="radio"
+                    name="q${nomor}"
+                    value="${opsi}"
+                >
+                <b>${huruf}.</b> ${opsi}
+            </label>
+        `;
+    });
+
+    html += `</div>`;
+
+    soalPGContainer.innerHTML += html;
+});
+
+
+/* MENAMPILKAN SOAL ESSAY */
+
+const soalEssayContainer = document.getElementById("soalEssay");
+
+soalEssay.forEach(function(item) {
+
+    soalEssayContainer.innerHTML += `
+        <div class="card">
+            <h3>${item.nomor}. ${item.soal}</h3>
+
+            <textarea
+                name="essay${item.nomor}"
+                placeholder="Tuliskan jawaban essay kamu di sini..."
+            ></textarea>
+        </div>
+    `;
+
+});
+
+
+/* KIRIM JAWABAN */
+
+document.getElementById("kuisForm").addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+        let benar = 0;
+        let salah = 0;
+        let belum = 0;
+
+        soalPG.forEach(function(item, index) {
+
+            const nomor = index + 1;
+
+            const pilihan = document.querySelector(
+                `input[name="q${nomor}"]:checked`
+            );
+
+            if (!pilihan) {
+
+                belum++;
+
+            } else if (pilihan.value === item.jawaban) {
+
+                benar++;
+
+            } else {
+
+                salah++;
+
+            }
+
+        });
+
+        const total = soalPG.length;
+
+        const nilai = Math.round(
+            (benar / total) * 100
+        );
+
+        const hasil = document.getElementById("hasil");
+
+        hasil.style.display = "block";
+
+        hasil.innerHTML = `
+            <h2>🎉 Hasil Kuis</h2>
+
+            <div class="nilai">
+                ${nilai}
+            </div>
+
+            <p>
+                <b>Benar:</b> ${benar} dari ${total} soal
+            </p>
+
+            <p>
+                <b>Salah:</b> ${salah} soal
+            </p>
+
+            <p>
+                <b>Belum dijawab:</b> ${belum} soal
+            </p>
+
+            <p>
+                Nilai hanya menghitung pilihan ganda.
+            </p>
+        `;
+
+
+        /* CATATAN ESSAY MUNCUL */
+
+        const catatanEssay =
+            document.getElementById("catatanEssay");
+
+        catatanEssay.style.display = "block";
+
+
+        /* SCROLL KE HASIL */
+
+        hasil.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+);
+
+
+/* RESET */
+
+function resetKuis() {
+
+    const yakin = confirm(
+        "Yakin ingin mengulang kuis? Semua jawaban akan dihapus."
+    );
+
+    if (!yakin) {
+        return;
+    }
+
+    document.getElementById("kuisForm").reset();
+
+    document.getElementById("hasil").style.display = "none";
+
+    document.getElementById("catatanEssay").style.display = "none";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
