@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kuis PPKn</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #eaf8ef, #dceefa);
+    color: #263b2a;
+}
+
+header {
+    background: linear-gradient(135deg, #125525, #176b8a);
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.15);
+}
+
+header h1 {
+    margin: 0 0 8px;
+    font-size: 30px;
+}
+
+header p {
+    margin: 0;
+}
+
+.container {
+    max-width: 950px;
+    margin: 25px auto;
+    padding: 0 15px;
+}
+
+.info {
+    background: white;
+    padding: 18px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+.info strong {
+    color: #176b45;
+}
+
+.soal {
+    background: white;
+    padding: 22px;
+    margin-bottom: 18px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+.soal h3 {
+    margin-top: 0;
+    color: #145c36;
+}
+
+.pilihan {
+    display: block;
+    padding: 11px 13px;
+    margin: 8px 0;
+    border-radius: 10px;
+    background: #f3f8f4;
+    border: 1px solid #d9e8dc;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.pilihan:hover {
+    background: #e4f4ea;
+}
+
+.pilihan input {
+    margin-right: 8px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 130px;
+    resize: vertical;
+    border: 1px solid #cbded0;
+    border-radius: 10px;
+    padding: 12px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+}
+
+.tombol-area {
+    text-align: center;
+    margin: 30px 0;
+}
+
+button {
+    border: none;
+    padding: 14px 30px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.btn-kirim {
+    background: linear-gradient(135deg, #176b45, #176b8a);
+    color: white;
+}
+
+.btn-reset {
+    background: #ddd;
+    color: #333;
+}
+
+button:hover {
+    opacity: .9;
+}
+
+#hasil {
+    display: none;
+    background: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,.1);
+}
+
+#hasil h2 {
+    color: #176b45;
+}
+
+.nilai {
+    font-size: 42px;
+    font-weight: bold;
+    color: #176b8a;
+}
+
+#catatanEssay {
+    display: none;
+}
+
+.catatan {
+    background: #fffbea;
+    border-left: 5px solid #e0ad24;
+    padding: 18px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+}
+
+.catatan h3 {
+    margin-top: 0;
+    color: #8a6500;
+}
+
+.catatan p {
+    line-height: 1.6;
+}
+
+.catatan ul {
+    line-height: 1.7;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #52645a;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    .soal {
+        padding: 17px;
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>📚 Kuis PPKn</h1>
+    <p>Pancasila, Konstitusi, Demokrasi dan Pemilu</p>
+</header>
+
+<div class="container">
+
+<div class="info">
+    <strong>Petunjuk:</strong>
+    <ul>
+        <li>Jawablah soal pilihan ganda nomor 1–35.</li>
+        <li>Jawablah soal uraian nomor 36–40 dengan kemampuan sendiri.</li>
+        <li>Setelah selesai, klik <b>Kirim Jawaban</b>.</li>
+        <li>Nilai pilihan ganda akan dihitung otomatis.</li>
+        <li>Catatan jawaban essay akan muncul setelah jawaban dikirim.</li>
+    </ul>
+</div>
+
+<form id="kuis">
+
+<!-- ================= SOAL 1 ================= -->
+
+<div class="soal">
+<h3>1. Rumusan awal Pancasila yang menjadi salah satu bagian penting dalam sejarah perumusan dasar negara terdapat dalam...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q1" value="Piagam Jakarta">
+Piagam Jakarta
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q1" value="Dekrit Presiden">
+Dekrit Presiden
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q1" value="Konstitusi RIS">
+Konstitusi RIS
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q1" value="Supersemar">
+Supersemar
+</label>
+</div>
+
+<!-- 2 -->
+
+<div class="soal">
+<h3>2. Salah satu fungsi Pancasila sebagai pandangan hidup adalah...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q2" value="Pedoman dalam menghadapi dan menyelesaikan berbagai masalah kehidupan">
+Pedoman dalam menghadapi dan menyelesaikan berbagai masalah kehidupan
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q2" value="Dasar untuk menghapus semua aturan">
+Dasar untuk menghapus semua aturan
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q2" value="Alat untuk membedakan masyarakat">
+Alat untuk membedakan masyarakat
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q2" value="Pedoman untuk kepentingan pribadi saja">
+Pedoman untuk kepentingan pribadi saja
+</label>
+</div>
+
+<!-- 3 -->
+
+<div class="soal">
+<h3>3. Contoh perilaku taat terhadap aturan dalam kehidupan sehari-hari adalah...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q3" value="Mematuhi peraturan yang berlaku secara sadar dan konsisten">
+Mematuhi peraturan yang berlaku secara sadar dan konsisten
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q3" value="Melanggar aturan ketika tidak diawasi">
+Melanggar aturan ketika tidak diawasi
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q3" value="Mengikuti aturan hanya jika menguntungkan">
+Mengikuti aturan hanya jika menguntungkan
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q3" value="Mengabaikan peraturan">
+Mengabaikan peraturan
+</label>
+</div>
+
+<!-- 4 -->
+
+<div class="soal">
+<h3>4. Salah satu contoh kewajiban warga negara adalah...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q4" value="Membayar pajak tepat waktu">
+Membayar pajak tepat waktu
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q4" value="Mendapatkan pendidikan">
+Mendapatkan pendidikan
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q4" value="Mendapatkan perlindungan hukum">
+Mendapatkan perlindungan hukum
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q4" value="Mendapatkan pelayanan kesehatan">
+Mendapatkan pelayanan kesehatan
+</label>
+</div>
+
+<!-- 5 -->
+
+<div class="soal">
+<h3>5. Sikap yang tepat dalam melaksanakan hak dan kewajiban adalah...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q5" value="Melaksanakan hak dan kewajiban secara seimbang dan bertanggung jawab">
+Melaksanakan hak dan kewajiban secara seimbang dan bertanggung jawab
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q5" value="Menuntut hak tanpa melaksanakan kewajiban">
+Menuntut hak tanpa melaksanakan kewajiban
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q5" value="Mengutamakan kewajiban orang lain">
+Mengutamakan kewajiban orang lain
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q5" value="Mengabaikan hak dan kewajiban">
+Mengabaikan hak dan kewajiban
+</label>
+</div>
+
+<!-- 6 -->
+
+<div class="soal">
+<h3>6. Semboyan Bhinneka Tunggal Ika berasal dari kitab...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q6" value="Kitab Sutasoma">
+Kitab Sutasoma
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q6" value="Kitab Negarakertagama">
+Kitab Negarakertagama
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q6" value="Kitab Pararaton">
+Kitab Pararaton
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q6" value="Kitab Bharatayudha">
+Kitab Bharatayudha
+</label>
+</div>
+
+<!-- 7 -->
+
+<div class="soal">
+<h3>7. Makna Bhinneka Tunggal Ika adalah...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q7" value="Berbeda itu satu/kesatuan">
+Berbeda itu satu/kesatuan
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q7" value="Semua harus sama">
+Semua harus sama
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q7" value="Perbedaan harus dihilangkan">
+Perbedaan harus dihilangkan
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q7" value="Perbedaan menyebabkan perpecahan">
+Perbedaan menyebabkan perpecahan
+</label>
+</div>
+
+<!-- 8 -->
+
+<div class="soal">
+<h3>8. Kegiatan bekerja bersama untuk kepentingan bersama disebut...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q8" value="Gotong royong">
+Gotong royong
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q8" value="Kompetisi">
+Kompetisi
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q8" value="Individualisme">
+Individualisme
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q8" value="Persaingan">
+Persaingan
+</label>
+</div>
+
+<!-- 9 -->
+
+<div class="soal">
+<h3>9. Sikap yang tepat untuk menjaga keutuhan bangsa adalah...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q9" value="Menjaga persatuan dan kesatuan bangsa">
+Menjaga persatuan dan kesatuan bangsa
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q9" value="Mengutamakan kelompok sendiri">
+Mengutamakan kelompok sendiri
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q9" value="Menolak perbedaan">
+Menolak perbedaan
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q9" value="Menyebarkan konflik">
+Menyebarkan konflik
+</label>
+</div>
+
+<!-- 10 -->
+
+<div class="soal">
+<h3>10. Contoh penerapan tanggung jawab sebagai siswa di sekolah adalah...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q10" value="Menjaga kebersihan dan ketertiban sekolah">
+Menjaga kebersihan dan ketertiban sekolah
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q10" value="Membuang sampah sembarangan">
+Membuang sampah sembarangan
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q10" value="Merusak fasilitas sekolah">
+Merusak fasilitas sekolah
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q10" value="Mengabaikan tata tertib">
+Mengabaikan tata tertib
+</label>
+</div>
+
+<!-- 11 -->
+
+<div class="soal">
+<h3>11. Jika terjadi perbedaan pendapat dalam kelompok, sebaiknya...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q11" value="Menyelesaikan perbedaan melalui musyawarah untuk mencapai mufakat">
+Menyelesaikan perbedaan melalui musyawarah untuk mencapai mufakat
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q11" value="Memaksakan pendapat sendiri">
+Memaksakan pendapat sendiri
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q11" value="Meninggalkan kelompok">
+Meninggalkan kelompok
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q11" value="Bertengkar">
+Bertengkar
+</label>
+</div>
+
+<!-- 12 -->
+
+<div class="soal">
+<h3>12. Sikap yang tepat terhadap teman baru yang memiliki budaya berbeda adalah...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q12" value="Membantu dan mengajak teman baru bergaul tanpa membeda-bedakan budayanya">
+Membantu dan mengajak teman baru bergaul tanpa membeda-bedakan budayanya
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q12" value="Menjauhinya">
+Menjauhinya
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q12" value="Mengejek budayanya">
+Mengejek budayanya
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q12" value="Tidak mengajaknya bekerja sama">
+Tidak mengajaknya bekerja sama
+</label>
+</div>
+
+<!-- 13 -->
+
+<div class="soal">
+<h3>13. Dalam mengambil keputusan bersama, sikap yang sesuai nilai Pancasila adalah...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q13" value="Bersikap adil dan mengutamakan kepentingan bersama">
+Bersikap adil dan mengutamakan kepentingan bersama
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q13" value="Mengutamakan kepentingan pribadi">
+Mengutamakan kepentingan pribadi
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q13" value="Memaksakan kehendak">
+Memaksakan kehendak
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q13" value="Mengabaikan pendapat orang lain">
+Mengabaikan pendapat orang lain
+</label>
+</div>
+
+<!-- 14 -->
+
+<div class="soal">
+<h3>14. Sila ketiga Pancasila berbunyi...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q14" value="Persatuan Indonesia">
+Persatuan Indonesia
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q14" value="Keadilan Sosial bagi Seluruh Rakyat Indonesia">
+Keadilan Sosial bagi Seluruh Rakyat Indonesia
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q14" value="Kemanusiaan yang Adil dan Beradab">
+Kemanusiaan yang Adil dan Beradab
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q14" value="Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan">
+Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan
+</label>
+</div>
+
+<!-- 15 -->
+
+<div class="soal">
+<h3>15. Peristiwa yang menyebabkan terbentuknya Republik Indonesia Serikat adalah...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q15" value="Hasil Konferensi Meja Bundar yang menyebabkan terbentuknya Republik Indonesia Serikat">
+Hasil Konferensi Meja Bundar yang menyebabkan terbentuknya Republik Indonesia Serikat
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q15" value="Proklamasi Kemerdekaan">
+Proklamasi Kemerdekaan
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q15" value="Dekrit Presiden">
+Dekrit Presiden
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q15" value="Pemilu 1955">
+Pemilu 1955
+</label>
+</div>
+
+<!-- 16 -->
+
+<div class="soal">
+<h3>16. Salah satu ketentuan mengenai masa jabatan Presiden dan Wakil Presiden adalah...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q16" value="Presiden dan Wakil Presiden dapat menjabat paling lama dua periode">
+Presiden dan Wakil Presiden dapat menjabat paling lama dua periode
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q16" value="Presiden dapat menjabat tanpa batas">
+Presiden dapat menjabat tanpa batas
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q16" value="Presiden hanya menjabat satu tahun">
+Presiden hanya menjabat satu tahun
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q16" value="Presiden tidak memiliki masa jabatan">
+Presiden tidak memiliki masa jabatan
+</label>
+</div>
+
+<!-- 17 -->
+
+<div class="soal">
+<h3>17. Salah satu wujud demokrasi dalam kehidupan bernegara adalah...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q17" value="Rakyat dapat memilih pemimpin secara langsung melalui Pemilu">
+Rakyat dapat memilih pemimpin secara langsung melalui Pemilu
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q17" value="Pemimpin dipilih tanpa melibatkan rakyat">
+Pemimpin dipilih tanpa melibatkan rakyat
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q17" value="Rakyat tidak memiliki hak politik">
+Rakyat tidak memiliki hak politik
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q17" value="Pemilu tidak diperlukan">
+Pemilu tidak diperlukan
+</label>
+</div>
+
+<!-- 18 -->
+
+<div class="soal">
+<h3>18. Sikap yang sesuai dengan semangat Bhinneka Tunggal Ika adalah...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q18" value="Menghargai pendapat dan latar belakang teman yang berbeda">
+Menghargai pendapat dan latar belakang teman yang berbeda
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q18" value="Memaksakan budaya sendiri">
+Memaksakan budaya sendiri
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q18" value="Menolak perbedaan">
+Menolak perbedaan
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q18" value="Mengejek teman yang berbeda">
+Mengejek teman yang berbeda
+</label>
+</div>
+
+<!-- 19 -->
+
+<div class="soal">
+<h3>19. Cara yang tepat menyelesaikan konflik antarkelompok adalah...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q19" value="Melakukan dialog dan musyawarah untuk mencari solusi bersama">
+Melakukan dialog dan musyawarah untuk mencari solusi bersama
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q19" value="Menggunakan kekerasan">
+Menggunakan kekerasan
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q19" value="Menyebarkan masalah">
+Menyebarkan masalah
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q19" value="Memaksakan kehendak">
+Memaksakan kehendak
+</label>
+</div>
+
+<!-- 20 -->
+
+<div class="soal">
+<h3>20. Sikap yang tepat ketika menerima informasi di media sosial adalah...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q20" value="Memeriksa kebenaran informasi sebelum menyebarkan dan tidak menyebarkan hoaks SARA">
+Memeriksa kebenaran informasi sebelum menyebarkan dan tidak menyebarkan hoaks SARA
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q20" value="Langsung menyebarkannya">
+Langsung menyebarkannya
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q20" value="Menyebarkan informasi yang memancing konflik">
+Menyebarkan informasi yang memancing konflik
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q20" value="Percaya semua informasi">
+Percaya semua informasi
+</label>
+</div>
+
+<!-- 21 -->
+
+<div class="soal">
+<h3>21. Dalam musyawarah, sikap yang sebaiknya dilakukan adalah...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q21" value="Mendengarkan semua usulan dan mengambil keputusan melalui musyawarah">
+Mendengarkan semua usulan dan mengambil keputusan melalui musyawarah
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q21" value="Mengabaikan semua pendapat">
+Mengabaikan semua pendapat
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q21" value="Memaksakan pendapat ketua">
+Memaksakan pendapat ketua
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q21" value="Tidak mengambil keputusan">
+Tidak mengambil keputusan
+</label>
+</div>
+
+<!-- 22 -->
+
+<div class="soal">
+<h3>22. Untuk mencegah konflik akibat informasi di internet, kita sebaiknya...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q22" value="Tidak menyebarkan informasi provokatif dan memeriksa kebenaran informasi">
+Tidak menyebarkan informasi provokatif dan memeriksa kebenaran informasi
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q22" value="Menyebarkan semua berita">
+Menyebarkan semua berita
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q22" value="Menyebarkan berita tanpa membaca">
+Menyebarkan berita tanpa membaca
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q22" value="Membuat berita palsu">
+Membuat berita palsu
+</label>
+</div>
+
+<!-- 23 -->
+
+<div class="soal">
+<h3>23. Cara mempertahankan nilai Pancasila dalam kehidupan sehari-hari adalah...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q23" value="Mengamalkan nilai-nilai Pancasila dalam kehidupan sehari-hari">
+Mengamalkan nilai-nilai Pancasila dalam kehidupan sehari-hari
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q23" value="Menghafalkan Pancasila tanpa mengamalkannya">
+Menghafalkan Pancasila tanpa mengamalkannya
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q23" value="Mengabaikan nilai Pancasila">
+Mengabaikan nilai Pancasila
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q23" value="Mengutamakan kepentingan pribadi">
+Mengutamakan kepentingan pribadi
+</label>
+</div>
+
+<!-- 24 -->
+
+<div class="soal">
+<h3>24. Sikap yang tepat dalam menjaga keutuhan Negara Kesatuan Republik Indonesia adalah...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q24" value="Menjaga persatuan, menolak gerakan separatis, dan menyelesaikan masalah secara damai sesuai hukum">
+Menjaga persatuan, menolak gerakan separatis, dan menyelesaikan masalah secara damai sesuai hukum
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q24" value="Mendukung perpecahan">
+Mendukung perpecahan
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q24" value="Menggunakan kekerasan">
+Menggunakan kekerasan
+</label>
+
+<label class="pilihan">
+<input type="radio" name="q24" value="Menolak hukum">
+Menolak hukum
+</label>
+</div>
+
+<!-- 25 -->
+
+<div class="soal">
+<h3>25. Bentuk negara, bentuk pemerintahan, dan sistem pemerintahan Indonesia adalah...</h3>
+
+<label class="pilihan">
+<input type="radio" name="q25" value="Neg
