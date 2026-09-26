@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kuis MULOK Sambas Kelas XII</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #e8f5e9, #e3f2fd);
+    color: #222;
+}
+
+.container {
+    width: 95%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #176b3a;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #176b3a;
+}
+
+.info {
+    text-align: center;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 13px;
+    margin-top: 8px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.question {
+    margin-bottom: 25px;
+}
+
+.question p {
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+.option {
+    display: block;
+    padding: 10px;
+    margin: 7px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: #f1f8f3;
+}
+
+.option input {
+    margin-right: 8px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 12px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #176b3a;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0f512b;
+}
+
+#hasil {
+    display: none;
+}
+
+.hasil-box {
+    text-align: center;
+    padding: 20px;
+    background: #f1f8f3;
+    border-radius: 12px;
+}
+
+.nilai {
+    font-size: 42px;
+    font-weight: bold;
+    color: #176b3a;
+}
+
+.essay-info {
+    color: #555;
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 92%;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+        <h1>Kuis MULOK</h1>
+        <div class="info">
+            <b>Bahasa dan Budaya Sambas</b><br>
+            Kelas XII RPL 1 & 2<br>
+            Tahun Pelajaran 2026/2027
+        </div>
+
+        <label for="nama">Nama Peserta:</label>
+        <input type="text" id="nama" placeholder="Masukkan nama lengkap">
+    </div>
+
+    <form id="kuis">
+
+        <div class="card">
+            <h2>A. Pilihan Ganda</h2>
+
+            <!-- SOAL 1 -->
+            <div class="question">
+                <p>1. Salah satu upaya yang tepat untuk melestarikan bahasa daerah Sambas adalah...</p>
+
+                <label class="option">
+                    <input type="radio" name="q1" value="A">
+                    A. Menghindari penggunaan bahasa daerah
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q1" value="B">
+                    B. Mengajarkan bahasa daerah kepada generasi muda
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q1" value="C">
+                    C. Menggunakan bahasa asing dalam semua kegiatan
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q1" value="D">
+                    D. Melarang penggunaan bahasa daerah
+                </label>
+            </div>
+
+            <!-- SOAL 2 -->
+            <div class="question">
+                <p>2. Penggunaan bahasa daerah Sambas yang paling tepat adalah...</p>
+
+                <label class="option">
+                    <input type="radio" name="q2" value="A">
+                    A. Digunakan sesuai situasi dan lawan bicara
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q2" value="B">
+                    B. Digunakan kepada semua orang tanpa melihat konteks
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q2" value="C">
+                    C. Digunakan hanya ketika ujian
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q2" value="D">
+                    D. Tidak boleh digunakan di lingkungan keluarga
+                </label>
+            </div>
+
+            <!-- SOAL 3 -->
+            <div class="question">
+                <p>3. Manfaat mempelajari bahasa daerah bagi generasi muda adalah...</p>
+
+                <label class="option">
+                    <input type="radio" name="q3" value="A">
+                    A. Menghilangkan budaya daerah
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q3" value="B">
+                    B. Menjauhkan diri dari masyarakat
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q3" value="C">
+                    C. Menjaga identitas dan warisan budaya daerah
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q3" value="D">
+                    D. Mengurangi keberagaman budaya
+                </label>
+            </div>
+
+            <!-- SOAL 4 -->
+            <div class="question">
+                <p>4. Pemanfaatan sumber daya alam yang bijaksana dan berkelanjutan berarti...</p>
+
+                <label class="option">
+                    <input type="radio" name="q4" value="A">
+                    A. Mengambil SDA sebanyak-banyaknya
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q4" value="B">
+                    B. Menggunakan SDA tanpa memperhatikan lingkungan
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q4" value="C">
+                    C. Memanfaatkan SDA sambil menjaga kelestariannya
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q4" value="D">
+                    D. Menghentikan seluruh pemanfaatan SDA
+                </label>
+            </div>
+
+            <!-- SOAL 5 -->
+            <div class="question">
+                <p>5. Contoh pemanfaatan SDA Kabupaten Sambas yang dapat meningkatkan nilai ekonomi masyarakat adalah...</p>
+
+                <label class="option">
+                    <input type="radio" name="q5" value="A">
+                    A. Mengolah hasil pertanian menjadi produk bernilai jual
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q5" value="B">
+                    A. Membakar lahan secara sembarangan
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q5" value="C">
+                    C. Membuang hasil panen
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q5" value="D">
+                    D. Menebang hutan tanpa aturan
+                </label>
+            </div>
+
+            <!-- SOAL 6 -->
+            <div class="question">
+                <p>6. Pemanfaatan SDA tanpa upaya pelestarian dapat menyebabkan...</p>
+
+                <label class="option">
+                    <input type="radio" name="q6" value="A">
+                    A. SDA semakin tidak terbatas
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q6" value="B">
+                    B. Lingkungan semakin terjaga
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q6" value="C">
+                    C. Kerusakan lingkungan dan berkurangnya SDA
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q6" value="D">
+                    D. Kualitas lingkungan selalu meningkat
+                </label>
+            </div>
+
+            <!-- SOAL 7 -->
+            <div class="question">
+                <p>7. Kain tenun tradisional memiliki nilai budaya karena...</p>
+
+                <label class="option">
+                    <input type="radio" name="q7" value="A">
+                    A. Tidak memiliki makna bagi masyarakat
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q7" value="B">
+                    B. Mengandung motif, keterampilan, dan nilai budaya masyarakat
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q7" value="C">
+                    C. Hanya digunakan sebagai barang sekali pakai
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q7" value="D">
+                    D. Tidak memiliki ciri khas
+                </label>
+            </div>
+
+            <!-- SOAL 8 -->
+            <div class="question">
+                <p>8. Cara yang tepat untuk mewariskan keterampilan menenun kepada generasi berikutnya adalah...</p>
+
+                <label class="option">
+                    <input type="radio" name="q8" value="A">
+                    A. Menghentikan kegiatan menenun
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q8" value="B">
+                    B. Mengadakan pelatihan menenun bagi generasi muda
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q8" value="C">
+                    C. Menghilangkan motif tradisional
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q8" value="D">
+                    D. Menyimpan alat tenun tanpa digunakan
+                </label>
+            </div>
+
+            <!-- SOAL 9 -->
+            <div class="question">
+                <p>9. Kain ikat Dayak berkaitan erat dengan kehidupan masyarakat Dayak karena...</p>
+
+                <label class="option">
+                    <input type="radio" name="q9" value="A">
+                    A. Tidak memiliki hubungan dengan budaya
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q9" value="B">
+                    B. Motif dan pembuatannya mencerminkan budaya masyarakat Dayak
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q9" value="C">
+                    C. Hanya digunakan untuk keperluan industri
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q9" value="D">
+                    D. Tidak memiliki nilai tradisional
+                </label>
+            </div>
+
+            <!-- SOAL 10 -->
+            <div class="question">
+                <p>10. Strategi meningkatkan nilai jual kain tradisional dengan tetap mempertahankan ciri khasnya adalah...</p>
+
+                <label class="option">
+                    <input type="radio" name="q10" value="A">
+                    A. Menghilangkan semua motif tradisional
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q10" value="B">
+                    B. Menjaga kualitas dan mengembangkan desain secara kreatif
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q10" value="C">
+                    C. Menggunakan bahan berkualitas rendah
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q10" value="D">
+                    D. Mengurangi kualitas pengerjaan
+                </label>
+            </div>
+
+            <!-- SOAL 11 -->
+            <div class="question">
+                <p>11. Contoh inovasi produk kain tenun yang tetap mempertahankan unsur budaya adalah...</p>
+
+                <label class="option">
+                    <input type="radio" name="q11" value="A">
+                    A. Menggunakan motif tradisional pada tas atau aksesori modern
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q11" value="B">
+                    B. Menghapus semua motif daerah
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q11" value="C">
+                    C. Mengganti kain tradisional dengan bahan biasa
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q11" value="D">
+                    D. Tidak memperhatikan kualitas produk
+                </label>
+            </div>
+
+            <!-- SOAL 12 -->
+            <div class="question">
+                <p>12. Bubur Pedas merupakan makanan tradisional yang dikenal sebagai makanan khas dari...</p>
+
+                <label class="option">
+                    <input type="radio" name="q12" value="A">
+                    A. Sambas, Kalimantan Barat
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q12" value="B">
+                    B. Bali
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q12" value="C">
+                    C. Jawa Tengah
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q12" value="D">
+                    D. Sumatra Barat
+                </label>
+            </div>
+
+            <!-- SOAL 13 -->
+            <div class="question">
+                <p>13. Salah satu bahan yang menjadi ciri khas dalam Bubur Pedas adalah...</p>
+
+                <label class="option">
+                    <input type="radio" name="q13" value="A">
+                    A. Beras yang disangrai dan berbagai sayuran
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q13" value="B">
+                    B. Cokelat dan susu
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q13" value="C">
+                    C. Keju dan mentega
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q13" value="D">
+                    D. Tepung terigu dan gula
+                </label>
+            </div>
+
+            <!-- SOAL 14 -->
+            <div class="question">
+                <p>14. Sebelum memasak Bubur Pedas, tahap persiapan yang tepat adalah...</p>
+
+                <label class="option">
+                    <input type="radio" name="q14" value="A">
+                    A. Membersihkan dan menyiapkan bahan-bahan
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q14" value="B">
+                    B. Langsung memasukkan semua bahan tanpa persiapan
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q14" value="C">
+                    C. Membungkus bubur terlebih dahulu
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q14" value="D">
+                    D. Menyimpan bahan tanpa dicuci
+                </label>
+            </div>
+
+            <!-- SOAL 15 -->
+            <div class="question">
+                <p>15. Sebelum digunakan dalam pembuatan Bubur Pedas, beras umumnya...</p>
+
+                <label class="option">
+                    <input type="radio" name="q15" value="A">
+                    A. Disangrai kemudian diolah sesuai kebutuhan
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q15" value="B">
+                    B. Dibuang
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q15" value="C">
+                    C. Dibekukan
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q15" value="D">
+                    D. Dicampur dengan gula saja
+                </label>
+            </div>
+
+            <!-- SOAL 16 -->
+            <div class="question">
+                <p>16. Fungsi utama kemasan makanan adalah...</p>
+
+                <label class="option">
+                    <input type="radio" name="q16" value="A">
+                    A. Menjaga keamanan dan mutu makanan
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q16" value="B">
+                    B. Membuat makanan cepat rusak
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q16" value="C">
+                    C. Menambah kotoran pada makanan
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q16" value="D">
+                    D. Mengurangi kebersihan makanan
+                </label>
+            </div>
+
+            <!-- SOAL 17 -->
+            <div class="question">
+                <p>17. Informasi penting yang sebaiknya dicantumkan pada kemasan makanan adalah...</p>
+
+                <label class="option">
+                    <input type="radio" name="q17" value="A">
+                    A. Nama produk dan tanggal kedaluwarsa
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q17" value="B">
+                    B. Nama teman pembuat
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q17" value="C">
+                    C. Warna favorit pembuat
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q17" value="D">
+                    D. Hobi penjual
+                </label>
+            </div>
+
+            <!-- SOAL 18 -->
+            <div class="question">
+                <p>18. Strategi kemasan yang dapat meningkatkan daya tarik makanan khas daerah adalah...</p>
+
+                <label class="option">
+                    <input type="radio" name="q18" value="A">
+                    A. Menggunakan desain menarik yang menampilkan identitas daerah
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q18" value="B">
+                    B. Menggunakan kemasan kotor
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q18" value="C">
+                    C. Tidak mencantumkan nama produk
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q18" value="D">
+                    D. Menggunakan kemasan yang mudah rusak
+                </label>
+            </div>
+
+            <!-- SOAL 19 -->
+            <div class="question">
+                <p>19. Kemasan makanan yang baik harus...</p>
+
+                <label class="option">
+                    <input type="radio" name="q19" value="A">
+                    A. Menarik tetapi mengabaikan keamanan
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q19" value="B">
+                    B. Aman untuk makanan sekaligus menarik
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q19" value="C">
+                    B. Mudah terbuka dan kotor
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q19" value="D">
+                    D. Tidak perlu memiliki label
+                </label>
+            </div>
+
+            <!-- SOAL 20 -->
+            <div class="question">
+                <p>20. Alat musik tradisional berperan dalam pelestarian budaya karena...</p>
+
+                <label class="option">
+                    <input type="radio" name="q20" value="A">
+                    A. Menjadi bagian dari identitas dan kesenian daerah
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q20" value="B">
+                    B. Menghilangkan budaya lokal
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q20" value="C">
+                    C. Tidak dapat digunakan dalam kegiatan budaya
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q20" value="D">
+                    D. Hanya digunakan sebagai hiasan
+                </label>
+            </div>
+
+            <!-- SOAL 21 -->
+            <div class="question">
+                <p>21. Fungsi alat musik dalam sebuah permainan musik adalah...</p>
+
+                <label class="option">
+                    <input type="radio" name="q21" value="A">
+                    A. Menghasilkan bunyi yang membentuk irama atau melodi
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q21" value="B">
+                    A. Menghilangkan bunyi
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q21" value="C">
+                    C. Menghentikan semua irama
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q21" value="D">
+                    D. Tidak menghasilkan bunyi
+                </label>
+            </div>
+
+            <!-- SOAL 22 -->
+            <div class="question">
+                <p>22. Alat musik yang dimainkan dengan cara dipukul termasuk alat musik dengan teknik...</p>
+
+                <label class="option">
+                    <input type="radio" name="q22" value="A">
+                    A. Tiup
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q22" value="B">
+                    B. Pukul
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q22" value="C">
+                    C. Gesek
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q22" value="D">
+                    D. Petik
+                </label>
+            </div>
+
+            <!-- SOAL 23 -->
+            <div class="question">
+                <p>23. Alat musik tradisional Sambas yang dikenal sebagai alat musik pukul adalah...</p>
+
+                <label class="option">
+                    <input type="radio" name="q23" value="A">
+                    A. Gong
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q23" value="B">
+                    B. Seruling
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q23" value="C">
+                    C. Biola
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q23" value="D">
+                    D. Gitar
+                </label>
+            </div>
+
+            <!-- SOAL 24 -->
+            <div class="question">
+                <p>24. Dalam permainan musik secara berkelompok, tempo dan kekompakan penting agar...</p>
+
+                <label class="option">
+                    <input type="radio" name="q24" value="A">
+                    A. Permainan musik terdengar selaras
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q24" value="B">
+                    B. Setiap pemain bermain sesuka hati
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q24" value="C">
+                    C. Irama menjadi tidak teratur
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q24" value="D">
+                    D. Musik tidak memiliki ketukan
+                </label>
+            </div>
+
+            <!-- SOAL 25 -->
+            <div class="question">
+                <p>25. Alat musik yang berfungsi menjaga ketukan atau irama disebut alat musik...</p>
+
+                <label class="option">
+                    <input type="radio" name="q25" value="A">
+                    A. Ritmis
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q25" value="B">
+                    B. Melodis
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q25" value="C">
+                    C. Harmonis saja
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q25" value="D">
+                    D. Elektronik
+                </label>
+            </div>
+
+            <!-- SOAL 26 -->
+            <div class="question">
+                <p>26. Contoh partisipasi generasi muda dalam melestarikan alat musik tradisional adalah...</p>
+
+                <label class="option">
+                    <input type="radio" name="q26" value="A">
+                    A. Belajar dan mengikuti kegiatan musik tradisional
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q26" value="B">
+                    B. Menghindari kesenian daerah
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q26" value="C">
+                    C. Merusak alat musik
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q26" value="D">
+                    D. Melarang pertunjukan tradisional
+                </label>
+            </div>
+
+            <!-- SOAL 27 -->
+            <div class="question">
+                <p>27. Lagu tradisional Sambas memiliki hubungan dengan kehidupan masyarakat karena...</p>
+
+                <label class="option">
+                    <input type="radio" name="q27" value="A">
+                    A. Mencerminkan kehidupan, nilai, dan budaya masyarakat
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q27" value="B">
+                    B. Tidak memiliki makna budaya
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q27" value="C">
+                    C. Hanya dibuat untuk hiburan modern
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q27" value="D">
+                    D. Tidak berkaitan dengan masyarakat
+                </label>
+            </div>
+
+            <!-- SOAL 28 -->
+            <div class="question">
+                <p>28. Lagu daerah dapat menjadi media pewarisan budaya karena...</p>
+
+                <label class="option">
+                    <input type="radio" name="q28" value="A">
+                    A. Nilai dan cerita budaya dapat dikenalkan melalui lagu
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q28" value="B">
+                    B. Lagu daerah harus dilupakan
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q28" value="C">
+                    C. Lagu daerah tidak memiliki nilai
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q28" value="D">
+                    D. Lagu daerah hanya boleh didengar orang tua
+                </label>
+            </div>
+
+            <!-- SOAL 29 -->
+            <div class="question">
+                <p>29. Proses pewarisan lagu daerah antargenerasi dapat dilakukan dengan cara...</p>
+
+                <label class="option">
+                    <input type="radio" name="q29" value="A">
+                    A. Mengajarkan dan menyanyikan lagu daerah kepada generasi muda
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q29" value="B">
+                    A. Menghapus lagu daerah
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q29" value="C">
+                    C. Melarang anak muda mempelajarinya
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q29" value="D">
+                    D. Tidak pernah menampilkan lagu daerah
+                </label>
+            </div>
+
+            <!-- SOAL 30 -->
+            <div class="question">
+                <p>30. Salah satu nilai yang dapat dipahami dari lagu “Ca Uncang” adalah...</p>
+
+                <label class="option">
+                    <input type="radio" name="q30" value="A">
+                    A. Nilai kehidupan dan budaya masyarakat yang diwariskan melalui lagu
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q30" value="B">
+                    B. Ajakan untuk melupakan budaya
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q30" value="C">
+                    C. Larangan mengenal tradisi
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q30" value="D">
+                    D. Tidak ada nilai budaya
+                </label>
+            </div>
+
+            <!-- SOAL 31 -->
+            <div class="question">
+                <p>31. Dalam memahami arti kata dalam lagu “Ca Uncang”, langkah yang paling tepat adalah...</p>
+
+                <label class="option">
+                    <input type="radio" name="q31" value="A">
+                    A. Melihat konteks kata dalam keseluruhan lirik
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q31" value="B">
+                    B. Mengabaikan konteks lagu
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q31" value="C">
+                    C. Mengubah arti sesuka hati
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q31" value="D">
+                    D. Tidak perlu mengetahui arti kata
+                </label>
+            </div>
+
+            <!-- SOAL 32 -->
+            <div class="question">
+                <p>32. Makna yang dapat dikaitkan dengan lagu “Kapal Belon” adalah...</p>
+
+                <label class="option">
+                    <input type="radio" name="q32" value="A">
+                    A. Perjuangan, ketabahan, dan harapan
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q32" value="B">
+                    B. Kemalasan dan keputusasaan
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q32" value="C">
+                    C. Menghindari semua tantangan
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q32" value="D">
+                    D. Tidak mau berusaha
+                </label>
+            </div>
+
+            <!-- SOAL 33 -->
+            <div class="question">
+                <p>33. Pernyataan yang tidak sesuai dengan nilai perjuangan dalam lagu “Kapal Belon” adalah...</p>
+
+                <label class="option">
+                    <input type="radio" name="q33" value="A">
+                    A. Tetap berusaha menghadapi kesulitan
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q33" value="B">
+                    B. Memiliki harapan untuk mencapai tujuan
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q33" value="C">
+                    C. Tabah menghadapi perjalanan hidup
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q33" value="D">
+                    D. Menyerah tanpa berusaha
+                </label>
+            </div>
+
+            <!-- SOAL 34 -->
+            <div class="question">
+                <p>34. Pesan kepedulian lingkungan dalam lagu “Sambas Kebanjiran” dapat diwujudkan dengan...</p>
+
+                <label class="option">
+                    <input type="radio" name="q34" value="A">
+                    A. Membuang sampah ke sungai
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q34" value="B">
+                    B. Menjaga kebersihan dan lingkungan sekitar
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q34" value="C">
+                    C. Menebang pohon sembarangan
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q34" value="D">
+                    D. Mengabaikan kebersihan lingkungan
+                </label>
+            </div>
+
+            <!-- SOAL 35 -->
+            <div class="question">
+                <p>35. Kegiatan yang mendukung pelestarian musik dan lagu tradisional Sambas adalah...</p>
+
+                <label class="option">
+                    <input type="radio" name="q35" value="A">
+                    A. Mengadakan pertunjukan dan mengajarkan lagu daerah kepada generasi muda
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q35" value="B">
+                    B. Menghentikan semua kegiatan seni daerah
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q35" value="C">
+                    C. Melarang generasi muda belajar musik tradisional
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q35" value="D">
+                    D. Menghilangkan alat musik tradisional
+                </label>
+            </div>
+
+        </div>
+
+        <!-- ESSAY -->
+        <div class="card">
+            <h2>B. Esai</h2>
+
+            <div class="question">
+                <p>36. Sebutkan beberapa contoh sumber daya alam yang terdapat di Kabupaten Sambas serta jelaskan manfaatnya bagi kehidupan masyarakat!</p>
+                <textarea name="essay1" placeholder="Tuliskan jawaban kamu..."></textarea>
+            </div>
+
+            <div class="question">
+                <p>37. Jelaskan bahan dan tahapan pengolahan salah satu makanan khas Sambas yang kamu ketahui!</p>
+                <textarea name="essay2" placeholder="Tuliskan jawaban kamu..."></textarea>
+            </div>
+
+            <div class="question">
+                <p>38. Jelaskan pentingnya pengemasan makanan serta sebutkan karakteristik kemasan makanan yang baik dan aman!</p>
+                <textarea name="essay3" placeholder="Tuliskan jawaban kamu..."></textarea>
+            </div>
+
+            <div class="question">
+                <p>39. Sebutkan salah satu alat musik tradisional Sambas dan jelaskan salah satu fungsinya dalam kehidupan masyarakat!</p>
+                <textarea name="essay4" placeholder="Tuliskan jawaban kamu..."></textarea>
+            </div>
+
+            <div class="question">
+                <p>40. Jelaskan nilai atau pesan yang dapat dipetik dari lagu “Kapal Belon”!</p>
+                <textarea name="essay5" placeholder="Tuliskan jawaban kamu..."></textarea>
+            </div>
+        </div>
+
+        <div class="card">
+            <button type="button" onclick="periksaKuis()">
+                KUMPULKAN JAWABAN
+            </button>
+        </div>
+
+    </form>
+
+    <!-- HASIL -->
+    <div class="card" id="hasil">
+
+        <h2>Hasil Kuis</h2>
+
+        <div class="hasil-box">
+
+            <p><b>Nama:</b> <span id="hasilNama"></span></p>
+
+            <p>Jawaban benar:</p>
+
+            <div class="nilai">
+                <span id="benar"></span>/35
+            </div>
+
+            <p>
+                Nilai Pilihan Ganda:
+                <b><span id="nilai"></span></b>
+            </p>
+
+            <p>
+                Jawaban kosong:
+                <b><span id="kosong"></span></b>
+            </p>
+
+            <div class="essay-info">
+                <p>
+                    <b>Esai:</b> 5 soal telah dikumpulkan.
+                </p>
+
+                <p>
+                    Jawaban esai perlu diperiksa secara manual oleh guru.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const kunci = {
+    q1: "B",
+    q2: "A",
+    q3: "C",
+    q4: "C",
+    q5: "A",
+    q6: "C",
+    q7: "B",
+    q8: "B",
+    q9: "B",
+    q10: "B",
+    q11: "A",
+    q12: "A",
+    q13: "A",
+    q14: "A",
+    q15: "A",
+    q16: "A",
+    q17: "A",
+    q18: "A",
+    q19: "B",
+    q20: "A",
+    q21: "A",
+    q22: "B",
+    q23: "A",
+    q24: "A",
+    q25: "A",
+    q26: "A",
+    q27: "A",
+    q28: "A",
+    q29: "A",
+    q30: "A",
+    q31: "A",
+    q32: "A",
+    q33: "D",
+    q34: "B",
+    q35: "A"
+};
+
+function periksaKuis() {
+
+    const nama = document.getElementById("nama").value.trim();
+
+    if (nama === "") {
+        alert("Silakan masukkan nama terlebih dahulu.");
+        document.getElementById("nama").focus();
+        return;
+    }
+
+    let benar = 0;
+    let kosong = 0;
+
+    for (let i = 1; i <= 35; i++) {
+
+        const jawaban = document.querySelector(
+            'input[name="q' + i + '"]:checked'
+        );
+
+        if (!jawaban) {
+            kosong++;
+        } else if (jawaban.value === kunci["q" + i]) {
+            benar++;
+        }
+    }
+
+    const nilai = Math.round((benar / 35) * 100);
+
+    document.getElementById("hasilNama").textContent = nama;
+    document.getElementById("benar").textContent = benar;
+    document.getElementById("nilai").textContent = nilai;
+    document.getElementById("kosong").textContent = kosong;
+
+    document.getElementById("hasil").style.display = "block";
+
+    window.scrollTo({
+        top: document.getElementById("hasil").offsetTop,
+        behavior: "smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
