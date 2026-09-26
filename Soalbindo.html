@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kuis UAS Bahasa Indonesia Kelas XII</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    color: #333;
+}
+
+.container {
+    width: 95%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.header {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    margin: 0 0 10px;
+    font-size: 25px;
+}
+
+.header p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.nama-box {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.nama-box label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.nama-box input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.btn-mulai {
+    width: 100%;
+    margin-top: 15px;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #333;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-mulai:hover {
+    background: #555;
+}
+
+#quiz {
+    display: none;
+}
+
+.section-title {
+    background: #333;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 25px 0 15px;
+    font-size: 20px;
+}
+
+.soal {
+    background: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.soal h3 {
+    margin-top: 0;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+.kutipan {
+    background: #f5f5f5;
+    border-left: 4px solid #555;
+    padding: 12px;
+    margin: 12px 0;
+    line-height: 1.6;
+}
+
+.option {
+    display: block;
+    padding: 10px;
+    margin: 7px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: #f3f3f3;
+}
+
+.option input {
+    margin-right: 8px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: vertical;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+}
+
+.btn-selesai {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #333;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    margin: 20px 0;
+}
+
+.btn-selesai:hover {
+    background: #555;
+}
+
+#hasil {
+    display: none;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 20px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.nilai {
+    font-size: 40px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.detail-hasil {
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.status {
+    padding: 12px;
+    background: #f1f1f1;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 94%;
+        margin: 15px auto;
+    }
+
+    .header h1 {
+        font-size: 21px;
+    }
+
+    .section-title {
+        font-size: 18px;
+    }
+
+    .soal h3 {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>UAS Bahasa Indonesia Kelas XII</h1>
+        <p>Teks LHO, Drama, Puisi, Ide Pokok, Fakta dan Opini</p>
+        <p><b>35 Pilihan Ganda + 5 Esai</b></p>
+    </div>
+
+    <div class="nama-box" id="formNama">
+        <label for="nama">Nama Peserta:</label>
+        <input type="text" id="nama" placeholder="Masukkan nama lengkap">
+
+        <button class="btn-mulai" onclick="mulaiKuis()">
+            Mulai Kuis
+        </button>
+    </div>
+
+    <form id="quiz">
+
+        <div class="section-title">
+            A. Pilihan Ganda
+        </div>
+
+        <!-- SOAL 1 -->
+        <div class="soal">
+            <h3>1. Perhatikan kutipan berikut!</h3>
+
+            <div class="kutipan">
+                Lidah buaya merupakan tanaman sukulen yang banyak ditemukan di daerah beriklim tropis.
+                Tanaman ini dikenal memiliki daun tebal, berdaging, dan mengandung gel.
+            </div>
+
+            <h3>Kutipan tersebut merupakan bagian struktur LHO berupa ....</h3>
+
+            <label class="option">
+                <input type="radio" name="q1" value="A">
+                A. Deskripsi manfaat
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="B">
+                B. Deskripsi bagian
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="C">
+                C. Pernyataan umum
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="D">
+                D. Simpulan
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="E">
+                E. Interpretasi
+            </label>
+        </div>
+
+        <!-- SOAL 2 -->
+        <div class="soal">
+            <h3>2. Fungsi paragraf deskripsi bagian dalam teks LHO adalah ....</h3>
+
+            <label class="option">
+                <input type="radio" name="q2" value="A">
+                A. Menjelaskan pendapat penulis terhadap objek
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="B">
+                B. Menjelaskan bagian-bagian atau ciri khusus objek yang diamati
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="C">
+                C. Menceritakan pengalaman penulis
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="D">
+                D. Menyampaikan kesimpulan akhir
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="E">
+                E. Membujuk pembaca agar menyukai objek
+            </label>
+        </div>
+
+        <!-- SOAL 3 -->
+        <div class="soal">
+            <h3>3. Perhatikan kutipan berikut!</h3>
+
+            <div class="kutipan">
+                Daun lidah buaya berbentuk panjang dan meruncing pada bagian ujung.
+                Permukaan daunnya memiliki duri-duri kecil di bagian tepi.
+                Di dalam daun terdapat gel yang bening dan berlendir.
+            </div>
+
+            <h3>Kutipan tersebut termasuk deskripsi bagian karena ....</h3>
+
+            <label class="option">
+                <input type="radio" name="q3" value="A">
+                A. Berisi pendapat tentang lidah buaya
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="B">
+                B. Menjelaskan manfaat lidah buaya secara umum
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="C">
+                C. Menjelaskan bagian dan ciri fisik objek secara rinci
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="D">
+                D. Menceritakan sejarah lidah buaya
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="E">
+                E. Berisi ajakan untuk menanam lidah buaya
+            </label>
+        </div>
+
+        <!-- SOAL 4 -->
+        <div class="soal">
+            <h3>4. Urutan struktur teks LHO yang tepat adalah ....</h3>
+
+            <label class="option">
+                <input type="radio" name="q4" value="A">
+                A. Deskripsi bagian – pernyataan umum – manfaat
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="B">
+                B. Manfaat – deskripsi bagian – pernyataan umum
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="C">
+                C. Pernyataan umum – deskripsi bagian – deskripsi manfaat
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="D">
+                D. Pernyataan umum – manfaat – deskripsi bagian
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="E">
+                E. Deskripsi manfaat – pernyataan umum – deskripsi bagian
+            </label>
+        </div>
+
+        <!-- SOAL 5 -->
+        <div class="soal">
+            <h3>5. Fungsi pernyataan umum dalam teks LHO adalah ....</h3>
+
+            <label class="option">
+                <input type="radio" name="q5" value="A">
+                A. Memberikan gambaran umum mengenai objek yang diamati
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="B">
+                B. Menjelaskan pendapat pribadi penulis
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="C">
+                C. Menceritakan konflik suatu tokoh
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="D">
+                D. Memberikan ajakan kepada pembaca
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="E">
+                E. Menjelaskan langkah-langkah melakukan sesuatu
+            </label>
+        </div>
+
+        <!-- SOAL 6 -->
+        <div class="soal">
+            <h3>6. Kalimat berikut yang merupakan kalimat deskripsi adalah ....</h3>
+
+            <label class="option">
+                <input type="radio" name="q6" value="A">
+                A. Lidah buaya sebaiknya ditanam oleh masyarakat.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="B">
+                B. Lidah buaya merupakan tanaman yang bermanfaat.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="C">
+                C. Menurut saya, lidah buaya sangat menarik.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="D">
+                D. Daun lidah buaya berbentuk panjang, tebal, dan memiliki duri kecil di tepinya.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="E">
+                E. Masyarakat harus memanfaatkan lidah buaya.
+            </label>
+        </div>
+
+        <!-- SOAL 7 -->
+        <div class="soal">
+            <h3>7. Perhatikan kalimat berikut!</h3>
+
+            <div class="kutipan">
+                Tanaman lidah buaya memiliki daun yang tebal.
+            </div>
+
+            <h3>Kata yang tepat untuk menggantikan kata "memiliki" tanpa mengubah makna adalah ....</h3>
+
+            <label class="option">
+                <input type="radio" name="q7" value="A">
+                A. Mengandung
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q7" value="B">
+                B. Mempunyai
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q7" value="C">
+                C. Menghasilkan
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q7" value="D">
+                D. Membutuhkan
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q7" value="E">
+                E. Menggunakan
+            </label>
+        </div>
+
+        <!-- SOAL 8 -->
+        <div class="soal">
+            <h3>8. Perhatikan kalimat berikut!</h3>
+
+            <div class="kutipan">
+                Daun lidah buaya mengandung gel yang kaya akan air.
+            </div>
+
+            <h3>Kata yang termasuk nomina adalah ....</h3>
+
+            <label class="option">
+                <input type="radio" name="q8" value="A">
+                A. Daun
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q8" value="B">
+                B. Mengandung
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q8" value="C">
+                C. Kaya
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q8" value="D">
+                D. Akan
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q8" value="E">
+                E. Adalah
+            </label>
+        </div>
+
+        <!-- SOAL 9 -->
+        <div class="soal">
+            <h3>9. Perhatikan kalimat berikut!</h3>
+
+            <div class="kutipan">
+                Lidah buaya memiliki daun tebal.
+            </div>
+
+            <h3>Kalimat tersebut termasuk kalimat simpleks karena ....</h3>
+
+            <label class="option">
+                <input type="radio" name="q9" value="A">
+                A. Memiliki satu predikat
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q9" value="B">
+                B. Memiliki dua subjek
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q9" value="C">
+                C. Memiliki dua predikat
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q9" value="D">
+                D. Memiliki konjungsi
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q9" value="E">
+                E. Memiliki dua klausa
+            </label>
+        </div>
+
+        <!-- SOAL 10 -->
+        <div class="soal">
+            <h3>10. Perhatikan kalimat kompleks berikut!</h3>
+
+            <div class="kutipan">
+                Lidah buaya tumbuh dengan baik di daerah tropis karena membutuhkan banyak sinar matahari.
+            </div>
+
+            <h3>Jika klausa "karena membutuhkan banyak sinar matahari" dihilangkan, kalimat tersebut menjadi ....</h3>
+
+            <label class="option">
+                <input type="radio" name="q10" value="A">
+                A. Lidah buaya tumbuh dengan baik.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q10" value="B">
+                B. Lidah buaya karena membutuhkan banyak sinar matahari.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q10" value="C">
+                C. Karena lidah buaya tumbuh dengan baik.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q10" value="D">
+                D. Lidah buaya membutuhkan banyak sinar matahari.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q10" value="E">
+                E. Tumbuh dengan baik karena lidah buaya.
+            </label>
+        </div>
+
+        <!-- SOAL 11 -->
+        <div class="soal">
+            <h3>11. Perhatikan dialog berikut!</h3>
+
+            <div class="kutipan">
+                Rina: "Kita harus mengembalikan dompet ini kepada pemiliknya."<br>
+                Dita: "Tapi tidak ada yang melihat kita. Kita bisa mengambil uangnya."<br>
+                Rina: "Tidak. Itu bukan hak kita."
+            </div>
+
+            <h3>Watak Rina berdasarkan dialog tersebut adalah ....</h3>
+
+            <label class="option"><input type="radio" name="q11" value="A"> A. Pemarah</label>
+            <label class="option"><input type="radio" name="q11" value="B"> B. Sombong</label>
+            <label class="option"><input type="radio" name="q11" value="C"> C. Jujur</label>
+            <label class="option"><input type="radio" name="q11" value="D"> D. Pemalas</label>
+            <label class="option"><input type="radio" name="q11" value="E"> E. Penakut</label>
+        </div>
+
+        <!-- SOAL 12 -->
+        <div class="soal">
+            <h3>12. Andi selalu membantu teman-temannya yang mengalami kesulitan. Ia juga tidak pernah membeda-bedakan teman berdasarkan keadaan ekonomi.</h3>
+
+            <h3>Amanat yang sesuai dengan kutipan tersebut adalah ....</h3>
+
+            <label class="option"><input type="radio" name="q12" value="A"> A. Jangan terlalu memperhatikan orang lain.</label>
+            <label class="option"><input type="radio" name="q12" value="B"> B. Bantulah orang lain tanpa membeda-bedakan.</label>
+            <label class="option"><input type="radio" name="q12" value="C"> C. Kita harus mengutamakan kepentingan sendiri.</label>
+            <label class="option"><input type="radio" name="q12" value="D"> D. Hindarilah teman yang berbeda dengan kita.</label>
+            <label class="option"><input type="radio" name="q12" value="E"> E. Jangan membantu orang yang sedang kesulitan.</label>
+        </div>
+
+        <!-- SOAL 13 -->
+        <div class="soal">
+            <h3>13. Perhatikan urutan peristiwa berikut!</h3>
+
+            <div class="kutipan">
+                1. Budi mengetahui bahwa dompetnya hilang.<br>
+                2. Budi mencari dompet di kelas.<br>
+                3. Budi menemukan dompet tersebut di perpustakaan.<br>
+                4. Budi mengingat bahwa ia terakhir membawa dompet ke perpustakaan.
+            </div>
+
+            <h3>Jenis alur yang digunakan adalah ....</h3>
+
+            <label class="option"><input type="radio" name="q13" value="A"> A. Alur maju</label>
+            <label class="option"><input type="radio" name="q13" value="B"> B. Alur mundur</label>
+            <label class="option"><input type="radio" name="q13" value="C"> C. Alur campuran</label>
+            <label class="option"><input type="radio" name="q13" value="D"> D. Alur sorot balik</label>
+            <label class="option"><input type="radio" name="q13" value="E"> E. Alur ganda</label>
+        </div>
+
+        <!-- SOAL 14 -->
+        <div class="soal">
+            <h3>14. Perhatikan dialog berikut!</h3>
+
+            <div class="kutipan">
+                "Jangan khawatir, aku akan menemanimu sampai rumah. Hari sudah sore dan jalanan mulai sepi."
+            </div>
+
+            <h3>Berdasarkan dialog tersebut, tokoh memiliki sifat ....</h3>
+
+            <label class="option"><input type="radio" name="q14" value="A"> A. Peduli</label>
+            <label class="option"><input type="radio" name="q14" value="B"> B. Egois</label>
+            <label class="option"><input type="radio" name="q14" value="C"> C. Ceroboh</label>
+            <label class="option"><input type="radio" name="q14" value="D"> D. Pemarah</label>
+            <label class="option"><input type="radio" name="q14" value="E"> E. Sombong</label>
+        </div>
+
+        <!-- SOAL 15 -->
+        <div class="soal">
+            <h3>15. Perhatikan kutipan berikut!</h3>
+
+            <div class="kutipan">
+                Awalnya suasana di ruang kelas sangat tenang. Namun, setelah guru mengumumkan bahwa akan ada ujian mendadak, para siswa mulai panik dan saling bertanya.
+            </div>
+
+            <h3>Perubahan suasana dalam kutipan tersebut adalah ....</h3>
+
+            <label class="option"><input type="radio" name="q15" value="A"> A. Sedih menjadi bahagia</label>
+            <label class="option"><input type="radio" name="q15" value="B"> B. Tenang menjadi panik</label>
+            <label class="option"><input type="radio" name="q15" value="C"> C. Marah menjadi tenang</label>
+            <label class="option"><input type="radio" name="q15" value="D"> D. Bahagia menjadi sedih</label>
+            <label class="option"><input type="radio" name="q15" value="E"> E. Takut menjadi gembira</label>
+        </div>
+
+        <!-- SOAL 16 -->
+        <div class="soal">
+            <h3>16. "Embun pagi menyapa wajahku dengan lembut."</h3>
+
+            <h3>Kesan yang ditimbulkan oleh penggunaan diksi "menyapa" adalah ....</h3>
+
+            <label class="option"><input type="radio" name="q16" value="A"> A. Kasar dan menakutkan</label>
+            <label class="optio
